@@ -4,10 +4,37 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity 
+  TouchableOpacity,
+  Alert
 } from 'react-native';
-
+import {Actions} from 'react-native-router-flux';
 export default class SignupForm extends Component<{}> {
+  state = {
+    email: '',
+    password: ''
+ }
+ handleEmail = (text) => {
+    this.setState({ email: text })
+ }
+ handlePassword = (text) => {
+    this.setState({ password: text })
+ }
+
+  alertmessage = (email,pass) =>
+  Alert.alert(
+    "Sign-Up Successfull",
+    "Email : "+ email + "\n" +
+    "Password : "+ pass,
+    [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ],
+    { cancelable: false }
+  );
 
 	render(){
 		return(
@@ -43,6 +70,7 @@ export default class SignupForm extends Component<{}> {
               selectionColor="#fff"
               keyboardType="email-address"
               onSubmitEditing={()=> this.password.focus()}
+              onChangeText = {this.handleEmail}
               />
           <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -57,9 +85,12 @@ export default class SignupForm extends Component<{}> {
               secureTextEntry={true}
               placeholderTextColor = "#ffffff"
               ref={(input) => this.password = input}
+              onChangeText= {this.handlePassword}
               />  
                
-           <TouchableOpacity style={styles.button}>
+           <TouchableOpacity title ={"Signup"} onPress = {
+                  () => this.alertmessage(this.state.email, this.state.password)
+               } style={styles.button}>
              <Text style={styles.buttonText}>{this.props.type}</Text>
            </TouchableOpacity>     
   		</View>
