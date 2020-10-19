@@ -12,7 +12,7 @@ import Form from '../components/Form';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Home extends Component<{}> {
+export default class Home extends Component {
  
     home() {
 		Actions.login()//signup button function for navigating to signup page

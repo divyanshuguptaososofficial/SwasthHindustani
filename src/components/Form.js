@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import {
   StyleSheet,
   Text,
@@ -8,7 +9,7 @@ import {
   Alert 
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-export default class Login extends Component<{}> {
+export default class Login extends Component {
   state = {
     email: '',
     password: ''
@@ -36,7 +37,20 @@ export default class Login extends Component<{}> {
     { cancelable: false }
   );
   home(){
-    Actions.home()//after successful login going to home page
+
+    axios.post(`http://192.168.56.1:8080/login`, { 
+
+      email: this.state.email,
+      password: this.state.password
+
+
+})
+.then(res => {
+
+ Alert.alert("Welcome")
+ Actions.home()
+})
+    
   }
 	render(){
 		return(

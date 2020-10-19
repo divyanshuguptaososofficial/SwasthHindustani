@@ -12,7 +12,7 @@ import SignupForm from '../components/SignupForm';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Signup extends Component<{}> {
+export default class Signup extends Component {
 
   goBack() {
       Actions.pop();//Login button function for navigating to login  page

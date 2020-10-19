@@ -9,7 +9,7 @@ import {
 
 import Routes from './src/Routes';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>

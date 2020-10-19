@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import {
   StyleSheet,
   Text,
@@ -8,7 +10,7 @@ import {
   Alert
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-export default class SignupForm extends Component<{}> {
+export default class SignupForm extends Component {
   state = {
     email: '',
     password: ''
@@ -19,24 +21,60 @@ export default class SignupForm extends Component<{}> {
  handlePassword = (text) => {
     this.setState({ password: text })
  }
+ 
+ InsertStudentRecordsToServer = () =>{
+  axios.post(`http://192.168.56.1:8080/users`, { 
 
-  alertmessage = (email,pass) =>
-  Alert.alert(
-    "Sign-Up Successfull",
-    "Email : "+ email + "\n" +
-    "Password : "+ pass,
-    [
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel"
-      },
-      { text: "OK", onPress: () => console.log("OK Pressed") }
-    ],
-    { cancelable: false }
-  );
+         name:"Amrit",
+         email: this.state.email,
+         password: this.state.password,
+         dob:"20/10/1999",
+         number:"9939235430"
+
+
+})
+  .then(res => {
+  
+    Alert.alert("Thank you for registering!!!");
+  })
+
+}
+
+  
+/* InsertStudentRecordsToServer = () =>{
+ 
+  fetch('http://192.168.56.1:8080/users', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+
+    name: "KUMARRRRRR",
+    email: "amrit.00153@gmail.com",
+    number:"9939235430",
+    dob:"20/10/1999"
+  
+
+
+    
+
+  })
+
+  }).then((response) => response.json())
+      .then((responseJson) => {
+
+        // Showing response message coming from server after inserting records.
+        Alert.alert(responseJson);
+
+      }).catch((error) => {
+        console.error(error);
+      });
+    }*/
 
 	render(){
+    this.saveData
 		return(
 			<View style={styles.container}>
                   <TextInput style={styles.inputBox} 
@@ -88,9 +126,8 @@ export default class SignupForm extends Component<{}> {
               onChangeText= {this.handlePassword}
               />  
                
-           <TouchableOpacity title ={"Signup"} onPress = {
-                  () => this.alertmessage(this.state.email, this.state.password)
-               } style={styles.button}>
+           <TouchableOpacity title ={"Signup"} 
+               style={styles.button}   onPress={this.InsertStudentRecordsToServer}              >
              <Text style={styles.buttonText}>{this.props.type}</Text>
            </TouchableOpacity>     
   		</View>
@@ -98,7 +135,7 @@ export default class SignupForm extends Component<{}> {
 	}
 }
 
-const styles = StyleSheet.create({
+ styles = StyleSheet.create({
   container : {
     flexGrow: 1,
     justifyContent:'center',
