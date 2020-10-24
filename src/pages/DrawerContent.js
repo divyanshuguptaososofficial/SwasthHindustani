@@ -66,7 +66,7 @@ export function DrawerContent(props) {
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="settings-outline" 
+                                name="home-outline" 
                                 color={color}
                                 size={size}
                                 />
