@@ -12,12 +12,13 @@ import Form from '../components/Form';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Login extends Component<{}> {
-
+export default class Login extends Component {
+ 
 	signup() {
 		Actions.signup()//signup button function for navigating to signup page
 	}
 
+ 
 	render() {
 		return(
 			<View style={styles.container}>

@@ -9,15 +9,16 @@ import {
 
 import Routes from './src/Routes';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <StatusBar
-           backgroundColor="#1c313a"
+           backgroundColor="#000000"
            barStyle="light-content"
          />
         <Routes/>
+        
       </View>
     );
   }
