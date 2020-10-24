@@ -3,7 +3,7 @@ const { g_sequelize } = require("./dbcon.js");
 
 const Sequelize = require('sequelize');
 
-const g_USER = g_sequelize.define('users', { name: Sequelize.TEXT,lname:
+const g_USER = g_sequelize.define('users', { fname: Sequelize.TEXT,lname:
      Sequelize.TEXT, number: Sequelize.BIGINT,email :{
      
   type: Sequelize.STRING,
@@ -12,7 +12,7 @@ const g_USER = g_sequelize.define('users', { name: Sequelize.TEXT,lname:
      
 },
 dob : Sequelize.TEXT,pass: Sequelize.TEXT });
-g_sequelize.sync({ force: true })
+g_sequelize.sync({ force: false })
   .then(() => {
     console.log(`Database & tables created!`);
    

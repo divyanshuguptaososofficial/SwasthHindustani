@@ -9,7 +9,7 @@ g_app.use(express.urlencoded());
 g_app.use(express.json());
 
 g_app.post('/users', function(req, res) {
-  g_USER.create({ name: req.body.name,email:req.body.email, pass: req.body.password,dob: req.body.dob,number: req.body.number }).then(function(name) {
+  g_USER.create({ fname: req.body.fname,lname: req.body.lname,email:req.body.email, pass: req.body.password,dob: req.body.dob,number: req.body.number }).then(function(name) {
     //console.log("HELOOOOOOOO",res);
     
   res.json()

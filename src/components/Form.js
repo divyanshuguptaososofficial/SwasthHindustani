@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
+
 import {
   StyleSheet,
   Text,
@@ -37,12 +39,10 @@ export default class Login extends Component {
     { cancelable: false }
   );
   home(){
-
-    axios.post(`http://192.168.56.1:8080/login`, { 
+    axios.post(`http://192.168.29.71:8080/login`, { 
 
       email: this.state.email,
       password: this.state.password
-
 
 })
 .then(res => {
@@ -52,6 +52,7 @@ export default class Login extends Component {
 })
     
   }
+
 	render(){
 		return(
 			<View style={styles.container}>

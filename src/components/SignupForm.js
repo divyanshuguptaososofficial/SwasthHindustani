@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-native'
 import axios from 'axios';
-
 import {
   StyleSheet,
   Text,
@@ -9,11 +9,16 @@ import {
   TouchableOpacity,
   Alert
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+
 export default class SignupForm extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    fname: '',
+    lname: '',
+    phoneno: '',
+    dob: ''
+
  }
  handleEmail = (text) => {
     this.setState({ email: text })
@@ -21,15 +26,29 @@ export default class SignupForm extends Component {
  handlePassword = (text) => {
     this.setState({ password: text })
  }
+ handleFirstName = (text) => {
+  this.setState({ fname: text })
+}
+handleLastName = (text) => {
+  this.setState({ lname: text })
+}
+handlePhoneno = (text) => {
+  this.setState({ phoneno: text })
+}
+handleDob = (text) => {
+  this.setState({ dob: DatePicker })
+}
+
  
  InsertStudentRecordsToServer = () =>{
-  axios.post(`http://192.168.56.1:8080/users`, { 
+  axios.post(`http://192.168.29.71:8080/users`, { 
 
-         name:"Amrit",
+         fname: this.state.fname,       
+         lname: this.state.lname,
          email: this.state.email,
          password: this.state.password,
-         dob:"20/10/1999",
-         number:"9939235430"
+         dob: this.state.dob,
+         number: this.state.phoneno
 
 
 })
@@ -40,68 +59,12 @@ export default class SignupForm extends Component {
 
 }
 
-  
-/* InsertStudentRecordsToServer = () =>{
- 
-  fetch('http://192.168.56.1:8080/users', {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-
-    name: "KUMARRRRRR",
-    email: "amrit.00153@gmail.com",
-    number:"9939235430",
-    dob:"20/10/1999"
-  
-
-
-    
-
-  })
-
-  }).then((response) => response.json())
-      .then((responseJson) => {
-
-        // Showing response message coming from server after inserting records.
-        Alert.alert(responseJson);
-
-      }).catch((error) => {
-        console.error(error);
-      });
-    }*/
-
 	render(){
     this.saveData
 		return(
+      
 			<View style={styles.container}>
-                  <TextInput style={styles.inputBox} 
-              underlineColorAndroid='rgba(0,0,0,0)' 
-              placeholder="Name"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff"
-              keyboardType="default"
-              onSubmitEditing={()=> this.password.focus()}
-              />
-              <TextInput style={styles.inputBox} 
-              underlineColorAndroid='rgba(0,0,0,0)' 
-              placeholder="Phone Number"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff"
-              keyboardType="number-pad"
-              onSubmitEditing={()=> this.password.focus()}
-              />
-               <TextInput style={styles.inputBox} 
-              underlineColorAndroid='rgba(0,0,0,0)' 
-              placeholder="DOB"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff"
-              keyboardType="default"
-              onSubmitEditing={()=> this.password.focus()}
-              />
-          <TextInput style={styles.inputBox} 
+         <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
               placeholder="Email"
               placeholderTextColor = "#ffffff"
@@ -116,15 +79,44 @@ export default class SignupForm extends Component {
               secureTextEntry={true}
               placeholderTextColor = "#ffffff"
               ref={(input) => this.password = input}
-              />  
-               <TextInput style={styles.inputBox} 
-              underlineColorAndroid='rgba(0,0,0,0)' 
-              placeholder="Confirm Password"
-              secureTextEntry={true}
-              placeholderTextColor = "#ffffff"
-              ref={(input) => this.password = input}
               onChangeText= {this.handlePassword}
               />  
+                  <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="First Name"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="default"
+              onChangeText = {this.handleFirstName}
+              />
+               <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="Last Name"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="default"
+              onChangeText = {this.handleLastName}
+              />
+            
+               <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="DOB"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="phone-pad"
+              onChangeText = {this.handleDob}
+              />
+              <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="Phone Number"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="number-pad"
+              onChangeText = {this.handlePhoneno}
+              />
+              
+         
+             
                
            <TouchableOpacity title ={"Signup"} 
                style={styles.button}   onPress={this.InsertStudentRecordsToServer}              >
