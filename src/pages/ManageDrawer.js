@@ -8,6 +8,7 @@ import {DrawerContent} from './DrawerContent';
 import AboutusScreen from './AboutusScreen';
 import SupportScreen from './SupportScreen';
 import ProfileScreen from './ProfileScreen';
+import Login from '../pages/Login';
 
 
 const Drawer = createDrawerNavigator();
@@ -22,6 +23,8 @@ const App = () => {
         <Drawer.Screen name="SupportScreen" component={SupportScreen} />
           <Drawer.Screen name="AboutusScreen" component={AboutusScreen} />
           <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
+          <Drawer.Screen name="Login/Signup" component={Login} />
+
 
       </Drawer.Navigator>
       

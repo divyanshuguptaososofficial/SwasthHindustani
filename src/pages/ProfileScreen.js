@@ -6,6 +6,7 @@ import NotificationsScreen from './NotificatonsScreen';
 import BasicInformationScreen from './BasicInformationScreen';
 import IncomeDetailsScreen from './IncomeDetailsScreen';
 import OtherDetailsScreen from './OtherDetails';
+import UploadDocumentScreen from './UploadDocumentScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -33,6 +34,11 @@ const ProfileScreen = () => (
         name="Other Details"
         component={OtherDetailsScreen}
         options={{ tabBarLabel:'Other Details' }}
+      />
+       <Tab.Screen
+        name="Upload Documents"
+        component={UploadDocumentScreen}
+        options={{ tabBarLabel:'Upload Documents' }}
       />
     
     </Tab.Navigator>
