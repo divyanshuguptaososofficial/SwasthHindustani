@@ -3,16 +3,19 @@ import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import OtherDetail from '../components/OtherDetail';
 
+
 const OtherDetailsScreen = ({navigation}) => {
 
   const { colors } = useTheme();
 
   const theme = useTheme();
-  
+ 
+    
     return (
       <View style={styles.container}>
         <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
         <OtherDetail type="Submit"/>
+        
         <Text style={{color: colors.text}}>Other Details Screen</Text>
    
       </View>

@@ -3,15 +3,18 @@ import DatePicker from 'react-native'
 import axios from 'axios';
 import {
   StyleSheet,
-  Text,
+  
   View,
   TextInput,
   CheckBox,
   TouchableOpacity,
   Alert
 } from 'react-native';
+import { RadioButton,Text } from 'react-native-paper';
 
-export default class BasicInformation extends Component {
+const BasicInformation = () =>  {
+  const [value, setValue] = React.useState('Male');
+
   state = {
     email: '',
     password: '',
@@ -37,7 +40,7 @@ handlePhoneno = (text) => {
   this.setState({ phoneno: text })
 }
 handleDob = (text) => {
-  this.setState({ dob: DatePicker })
+  this.setState({ dob: text })
 }
 
  
@@ -58,11 +61,11 @@ handleDob = (text) => {
     Alert.alert("Thank you for registering!!!");
   })
 
-}
+};
 
-	render(){
+	
         
-    this.saveData
+    
 		return(
       
 			<View style={styles.container}>
@@ -73,7 +76,7 @@ handleDob = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="default"
-              onChangeText = {this.handleFirstName}
+              onChangeText = {handleFirstName}
               />
        
 
@@ -84,7 +87,7 @@ handleDob = (text) => {
               selectionColor="#fff"
               keyboardType="email-address"
               onSubmitEditing={()=> this.password.focus()}
-              onChangeText = {this.handleEmail}
+              onChangeText = {handleEmail}
               />
 
                
@@ -94,7 +97,7 @@ handleDob = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="number-pad"
-              onChangeText = {this.handlePhoneno}
+              onChangeText = {handlePhoneno}
               />
             
                <TextInput style={styles.inputBox} 
@@ -103,21 +106,27 @@ handleDob = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="phone-pad"
-              onChangeText = {this.handleDob}
+              onChangeText = {handleDob}
               />
          
+         <RadioButton.Group onValueChange={value => setValue(value)} value={value} >
+      <RadioButton.Item label="Male" value="Male" />
+      <RadioButton.Item label="Female" value="Female" />
+      <RadioButton.Item label="Other" value="Other" />
+
+    </RadioButton.Group>
               
        
              
                
            <TouchableOpacity title ={"Basic Information"} 
-               style={styles.button}   onPress={this.InsertStudentRecordsToServer}              >
-             <Text style={styles.buttonText}>{this.props.type}</Text>
+               style={styles.button}   onPress={InsertStudentRecordsToServer}              >
+             <Text style={styles.buttonText}>Submit</Text>
            </TouchableOpacity>     
   		</View>
 			)
 	}
-}
+
 
  styles = StyleSheet.create({
   container : {
@@ -151,3 +160,6 @@ handleDob = (text) => {
   }
   
 });
+
+
+export default BasicInformation;

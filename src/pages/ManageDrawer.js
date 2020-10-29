@@ -22,8 +22,9 @@ const App = () => {
         <Drawer.Screen name="Home" component={MainScreen} />
         <Drawer.Screen name="SupportScreen" component={SupportScreen} />
           <Drawer.Screen name="AboutusScreen" component={AboutusScreen} />
-          <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
           <Drawer.Screen name="Login/Signup" component={Login} />
+          <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
+          
 
 
       </Drawer.Navigator>
