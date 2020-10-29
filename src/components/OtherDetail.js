@@ -6,12 +6,15 @@ import {
   Text,
   View,
   TextInput,
-  CheckBox,
   TouchableOpacity,
   Alert
 } from 'react-native';
-
-export default class OtherDetail extends Component {
+import {   Paragraph,
+  Checkbox,
+  Colors,
+  TouchableRipple,
+  useTheme} from 'react-native-paper';
+const OtherDetail = () => {
   state = {
     pancardno: '',
     aadharcardno: '',
@@ -62,11 +65,9 @@ handlestate = (text) => {
     Alert.alert("Thank you for registering!!!");
   })
 
-}
+};
 
-	render(){
-        
-    this.saveData
+	
 		return(
       
 			<View style={styles.container}>
@@ -77,7 +78,7 @@ handlestate = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="name-phone-pad"
-              onChangeText = {this.handlepancardno}
+              onChangeText = {handlepancardno}
               />
        
        <TextInput style={styles.inputBox} 
@@ -86,7 +87,7 @@ handlestate = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="number-pad"
-              onChangeText = {this.handleaadharcardno}
+              onChangeText = {handleaadharcardno}
               />
        
          <TextInput style={styles.inputBox} 
@@ -96,7 +97,7 @@ handlestate = (text) => {
               selectionColor="#fff"
               keyboardType="default"
               onSubmitEditing={()=> this.password.focus()}
-              onChangeText = {this.handleaddress1}
+              onChangeText = {handleaddress1}
               />
 
 <TextInput style={styles.inputBox} 
@@ -106,7 +107,7 @@ handlestate = (text) => {
               selectionColor="#fff"
               keyboardType="default"
               onSubmitEditing={()=> this.password.focus()}
-              onChangeText = {this.handleaddress2}
+              onChangeText = {handleaddress2}
               />
 <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -114,7 +115,7 @@ handlestate = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="number-pad"
-              onChangeText = {this.handlepincode}
+              onChangeText = {handlepincode}
               />
             
                <TextInput style={styles.inputBox} 
@@ -123,7 +124,7 @@ handlestate = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="default"
-              onChangeText = {this.handlecity}
+              onChangeText = {handlecity}
               />
          
          <TextInput style={styles.inputBox} 
@@ -132,27 +133,33 @@ handlestate = (text) => {
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="default"
-              onChangeText = {this.handlestate}
+              onChangeText = {handlestate}
               />
+
+     
+ 
+          
    
-          
-          
                
            <TouchableOpacity title ={"Other Details"} 
-               style={styles.button}   onPress={this.InsertStudentRecordsToServer}              >
-             <Text style={styles.buttonText}>{this.props.type}</Text>
+               style={styles.button}   onPress={InsertStudentRecordsToServer}              >
+             <Text style={styles.buttonText}>Submit</Text>
            </TouchableOpacity>     
   		</View>
+      
 			)
 	}
-}
 styles = StyleSheet.create({
     container : {
       flexGrow: 1,
       justifyContent:'center',
       alignItems: 'center'
     },
-   
+    color1:{
+      color:'#ffffff'
+    }
+   ,
+
   
     inputBox: {
       width:300,
@@ -178,4 +185,5 @@ styles = StyleSheet.create({
     }
     
   });
-  
+ 
+  export default OtherDetail;
