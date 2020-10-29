@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
 import { useTheme } from '@react-navigation/native';
+import IncomeDetails from '../components/IncomeDetails';
 
 const IncomeDetailsScreen = ({navigation}) => {
 
@@ -12,7 +13,7 @@ const IncomeDetailsScreen = ({navigation}) => {
       <View style={styles.container}>
         <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
         <Text style={{color: colors.text}}>Income Details Screen</Text>
-   
+   <IncomeDetails/>
       </View>
     );
 };
@@ -20,9 +21,26 @@ const IncomeDetailsScreen = ({navigation}) => {
 export default IncomeDetailsScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
+  container : {
+    backgroundColor:'#455a64',
+    flex: 1,
+    alignItems:'center',
+    justifyContent :'center'
   },
+  signupTextCont : {
+  	flexGrow: 1,
+    alignItems:'flex-end',
+    justifyContent :'center',
+    paddingVertical:16,
+    flexDirection:'row'
+  },
+  signupText: {
+  	color:'rgba(255,255,255,0.6)',
+  	fontSize:16
+  },
+  signupButton: {
+  	color:'#ffffff',
+  	fontSize:16,
+  	fontWeight:'500'
+  }
 });
