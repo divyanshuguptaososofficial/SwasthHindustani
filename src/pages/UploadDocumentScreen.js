@@ -54,7 +54,7 @@ const UploadDocumentScreen = () => {
     <View style={styles.panel}>
       <View style={{alignItems: 'center'}}>
         <Text style={styles.panelTitle}>Upload Photo</Text>
-        <Text style={styles.panelSubtitle}>Choose Your Profile Picture</Text>
+        <Text style={styles.panelSubtitle}>Choose Your Aadhar Card Picture</Text>
       </View>
       <TouchableOpacity style={styles.panelButton} onPress={takePhotoFromCamera}>
         <Text style={styles.panelButtonTitle}>Take Photo</Text>
@@ -95,7 +95,108 @@ const UploadDocumentScreen = () => {
       <Animated.View style={{margin: 20,
         opacity: Animated.add(0.1, Animated.multiply(this.fall, 1.0)),
     }}>
+    
+      
         <View style={{alignItems: 'center'}}>
+        <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold',textAlign: 'center'}}>
+            Aadhar Card
+          </Text>
+          <TouchableOpacity onPress={() => this.bs.current.snapTo(0)}>
+            <View
+              style={{
+                height: 100,
+                width: 100,
+                borderRadius: 15,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <ImageBackground
+                source={{
+                  uri: image,
+                }}
+                style={{height: 100, width: 100}}
+                imageStyle={{borderRadius: 15}}>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                 
+
+                  <Icon
+                    name="camera"
+                    size={35}
+                    color="#000"
+                    style={{
+                      opacity: 0.7,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderWidth: 1,
+                      borderColor: '#fff',
+                      borderRadius: 10,
+                    }}
+                  />
+                </View>
+              </ImageBackground>
+            </View>
+            <Text >Click to Upload Aadhar Card</Text>
+                    <Text style={{textAlign: 'center'}}>Side 1</Text>
+          </TouchableOpacity>
+          
+        </View>
+        
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity onPress={() => this.bs.current.snapTo(0)}>
+            <View
+              style={{
+                height: 100,
+                width: 100,
+                borderRadius: 15,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <ImageBackground
+                source={{
+                  uri: image,
+                }}
+                style={{height: 100, width: 100}}
+                imageStyle={{borderRadius: 15}}>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                   
+                  <Icon
+                    name="camera"
+                    size={35}
+                    color="#000"
+                    style={{
+                      opacity: 0.7,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderWidth: 1,
+                      borderColor: '#fff',
+                      borderRadius: 10,
+                    }}
+                  />
+                </View>
+              </ImageBackground>
+            </View>
+            <Text style={{textAlign: 'center'}}>Click to Upload Aadhar Card</Text>
+                    <Text style={{textAlign: 'center'}}>Side 2</Text>
+          </TouchableOpacity>
+         
+        </View>
+        
+
+
+        <View style={{alignItems: 'center'}}>
+        <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold'}}>
+            Pan Card
+          </Text>
           <TouchableOpacity onPress={() => this.bs.current.snapTo(0)}>
             <View
               style={{
@@ -120,7 +221,7 @@ const UploadDocumentScreen = () => {
                   <Icon
                     name="camera"
                     size={35}
-                    color="#fff"
+                    color="#000"
                     style={{
                       opacity: 0.7,
                       alignItems: 'center',
@@ -134,97 +235,12 @@ const UploadDocumentScreen = () => {
               </ImageBackground>
             </View>
           </TouchableOpacity>
-          <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold'}}>
-            John Doe
-          </Text>
+         
         </View>
 
-        <View style={styles.action}>
-          <FontAwesome name="user-o" color={colors.text} size={20} />
-          <TextInput
-            placeholder="First Name"
-            placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <FontAwesome name="user-o" color={colors.text} size={20} />
-          <TextInput
-            placeholder="Last Name"
-            placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <Feather name="phone" color={colors.text} size={20} />
-          <TextInput
-            placeholder="Phone"
-            placeholderTextColor="#666666"
-            keyboardType="number-pad"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <FontAwesome name="envelope-o" color={colors.text} size={20} />
-          <TextInput
-            placeholder="Email"
-            placeholderTextColor="#666666"
-            keyboardType="email-address"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <FontAwesome name="globe" color={colors.text} size={20} />
-          <TextInput
-            placeholder="Country"
-            placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <Icon name="map-marker-outline" color={colors.text} size={20} />
-          <TextInput
-            placeholder="City"
-            placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
+      
+       
+        
         <TouchableOpacity style={styles.commandButton} onPress={() => {}}>
           <Text style={styles.panelButtonTitle}>Submit</Text>
         </TouchableOpacity>
@@ -238,6 +254,14 @@ export default UploadDocumentScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+   parent: {
+     
+    
+    flexDirection: 'row',
+    borderRadius: 10,
+    paddingVertical: 13,
+    justifyContent: 'space-around'
   },
   commandButton: {
     padding: 15,
