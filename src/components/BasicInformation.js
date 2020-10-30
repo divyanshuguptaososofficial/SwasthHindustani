@@ -11,9 +11,11 @@ import {
   Alert
 } from 'react-native';
 import { RadioButton,Text } from 'react-native-paper';
-
+import Feather from 'react-native-vector-icons/Feather';
+import {useTheme} from 'react-native-paper';
 const BasicInformation = () =>  {
   const [value, setValue] = React.useState('Male');
+  const {colors} = useTheme();
 
   state = {
     email: '',
@@ -89,9 +91,11 @@ handleDob = (text) => {
               onSubmitEditing={()=> this.password.focus()}
               onChangeText = {handleEmail}
               />
+              
 
                
 <TextInput style={styles.inputBox} 
+
               underlineColorAndroid='rgba(0,0,0,0)' 
               placeholder="Phone Number"
               placeholderTextColor = "#ffffff"
@@ -99,7 +103,7 @@ handleDob = (text) => {
               keyboardType="number-pad"
               onChangeText = {handlePhoneno}
               />
-            
+          
                <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
               placeholder="DOB"
@@ -108,14 +112,14 @@ handleDob = (text) => {
               keyboardType="phone-pad"
               onChangeText = {handleDob}
               />
-         
+         <View style={styles.parent}>
          <RadioButton.Group onValueChange={value => setValue(value)} value={value} >
       <RadioButton.Item label="Male" value="Male" />
       <RadioButton.Item label="Female" value="Female" />
       <RadioButton.Item label="Other" value="Other" />
 
     </RadioButton.Group>
-              
+    </View>
        
              
                
@@ -134,7 +138,14 @@ handleDob = (text) => {
     justifyContent:'center',
     alignItems: 'center'
   },
- 
+  parent: {
+     
+    
+    flexDirection: 'row',
+    borderRadius: 10,
+    paddingVertical: 13,
+    justifyContent: 'space-around'
+  },
 
   inputBox: {
     width:300,
