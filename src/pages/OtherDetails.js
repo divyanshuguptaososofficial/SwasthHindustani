@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, Button, StyleSheet, StatusBar ,TouchableOpacity} from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import OtherDetail from '../components/OtherDetail';
 
@@ -16,7 +16,16 @@ const OtherDetailsScreen = ({navigation}) => {
         <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
         <OtherDetail type="Submit"/>
         
-        <Text style={{color: colors.text}}>Other Details Screen</Text>
+        <View style={styles.container2}> 
+        <TouchableOpacity title ={"Basic Information"} 
+               style={styles.button}  onPress={() => navigation.navigate("Upload Documents")}           >
+             <Text style={styles.buttonText}>Next</Text>
+           </TouchableOpacity>    
+
+           <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("Income Details")}}>
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
+        </View>
    
       </View>
     );
@@ -31,6 +40,16 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent :'center'
   },
+  container2: {
+   
+     
+    
+    flexDirection: 'row',
+    borderRadius: 10,
+    paddingVertical: 13,
+    justifyContent: 'space-around',
+  alignItems: 'center'
+},
   signupTextCont : {
   	flexGrow: 1,
     alignItems:'flex-end',
@@ -46,5 +65,18 @@ const styles = StyleSheet.create({
   	color:'#ffffff',
   	fontSize:16,
   	fontWeight:'500'
+  } ,  
+  button: {
+    width:100,
+    backgroundColor:'#1c313a',
+     borderRadius: 25,
+      marginVertical: 10,
+      paddingVertical: 13
+  }
+  , buttonText: {
+    fontSize:16,
+    fontWeight:'500',
+    color:'#ffffff',
+    textAlign:'center'
   }
 });
