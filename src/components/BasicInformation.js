@@ -113,7 +113,9 @@ handleDob = (text) => {
               onChangeText = {handleDob}
               />
          <View style={styles.parent}>
+           
          <RadioButton.Group onValueChange={value => setValue(value)} value={value} >
+
       <RadioButton.Item label="Male" value="Male" />
       <RadioButton.Item label="Female" value="Female" />
       <RadioButton.Item label="Other" value="Other" />

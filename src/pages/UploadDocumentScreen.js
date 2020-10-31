@@ -6,9 +6,10 @@ import {
   ImageBackground,
   TextInput,
   StyleSheet,
+
 } from 'react-native';
 
-import {useTheme} from 'react-native-paper';
+import {Button, useTheme} from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -19,9 +20,12 @@ import Animated from 'react-native-reanimated';
 
 import ImagePicker from 'react-native-image-crop-picker';
 
-const UploadDocumentScreen = () => {
+const UploadDocumentScreen = ({navigation}) => {
 
   const [image, setImage] = useState('https://api.adorable.io/avatars/80/abott@adorable.png');
+  const [image2, setImage2] = useState('https://api.adorable.io/avatars/80/abott@adorable.png');
+  const [image3, setImage3] = useState('https://api.adorable.io/avatars/80/abott@adorable.png');
+
   const {colors} = useTheme();
 
   const takePhotoFromCamera = () => {
@@ -36,6 +40,31 @@ const UploadDocumentScreen = () => {
       this.bs.current.snapTo(1);
     });
   }
+ 
+  const takePhotoFromCamera2 = () => {
+    ImagePicker.openCamera({
+      compressImageMaxWidth: 300,
+      compressImageMaxHeight: 300,
+      cropping: true,
+      compressImageQuality: 0.7
+    }).then(image2 => {
+      console.log(image2);
+      setImage2(image2.path);
+      this.bs2.current.snapTo(1);
+    });
+  }
+  const takePhotoFromCamera3 = () => {
+    ImagePicker.openCamera({
+      compressImageMaxWidth: 300,
+      compressImageMaxHeight: 300,
+      cropping: true,
+      compressImageQuality: 0.7
+    }).then(image3 => {
+      console.log(image3);
+      setImage3(image3.path);
+      this.bs3.current.snapTo(1);
+    });
+  }
 
   const choosePhotoFromLibrary = () => {
     ImagePicker.openPicker({
@@ -46,10 +75,35 @@ const UploadDocumentScreen = () => {
     }).then(image => {
       console.log(image);
       setImage(image.path);
-      this.bs.current.snapTo(1);
+      this.bs3.current.snapTo(1);
     });
   }
 
+  const choosePhotoFromLibrary2 = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 300,
+      cropping: true,
+      compressImageQuality: 0.7
+    }).then(image2 => {
+      console.log(image2);
+      setImage2(image2.path);
+      this.bs2.current.snapTo(1);
+    });
+  }
+
+  const choosePhotoFromLibrary3 = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 300,
+      cropping: true,
+      compressImageQuality: 0.7
+    }).then(image3 => {
+      console.log(image3);
+      setImage3(image3.path);
+      this.bs3.current.snapTo(1);
+    });
+  }
   renderInner = () => (
     <View style={styles.panel}>
       <View style={{alignItems: 'center'}}>
@@ -69,6 +123,46 @@ const UploadDocumentScreen = () => {
       </TouchableOpacity>
     </View>
   );
+ 
+  renderInner2 = () => (
+    <View style={styles.panel}>
+      <View style={{alignItems: 'center'}}>
+        <Text style={styles.panelTitle}>Upload Photo</Text>
+        <Text style={styles.panelSubtitle}>Choose Your Aadhar Card Picture</Text>
+      </View>
+      <TouchableOpacity style={styles.panelButton} onPress={takePhotoFromCamera2}>
+        <Text style={styles.panelButtonTitle}>Take Photo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.panelButton} onPress={choosePhotoFromLibrary2}>
+        <Text style={styles.panelButtonTitle}>Choose From Library</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.panelButton}
+        onPress={() => this.bs2.current.snapTo(1)}>
+        <Text style={styles.panelButtonTitle}>Cancel</Text>
+      </TouchableOpacity>
+    </View>
+  );
+
+  renderInner3 = () => (
+    <View style={styles.panel}>
+      <View style={{alignItems: 'center'}}>
+        <Text style={styles.panelTitle}>Upload Photo</Text>
+        <Text style={styles.panelSubtitle}>Choose Your Pan Card Picture</Text>
+      </View>
+      <TouchableOpacity style={styles.panelButton} onPress={takePhotoFromCamera3}>
+        <Text style={styles.panelButtonTitle}>Take Photo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.panelButton} onPress={choosePhotoFromLibrary3}>
+        <Text style={styles.panelButtonTitle}>Choose From Library</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.panelButton}
+        onPress={() => this.bs3.current.snapTo(1)}>
+        <Text style={styles.panelButtonTitle}>Cancel</Text>
+      </TouchableOpacity>
+    </View>
+  );
 
   renderHeader = () => (
     <View style={styles.header}>
@@ -80,6 +174,10 @@ const UploadDocumentScreen = () => {
 
   bs = React.createRef();
   fall = new Animated.Value(1);
+  bs2 = React.createRef();
+  fall2 = new Animated.Value(1);
+  bs3 = React.createRef();
+  fall3 = new Animated.Value(1);
 
   return (
     <View style={styles.container}>
@@ -143,11 +241,24 @@ const UploadDocumentScreen = () => {
             <Text >Click to Upload Aadhar Card</Text>
                     <Text style={{textAlign: 'center'}}>Side 1</Text>
           </TouchableOpacity>
-          
-        </View>
+          </View>
+          </Animated.View>
         
+        
+        <BottomSheet
+        ref={this.bs2}
+        snapPoints={[330, 0]}
+        renderContent={this.renderInner2}
+        renderHeader={this.renderHeader}
+        initialSnap={1}
+        callbackNode={this.fall2}
+        enabledGestureInteraction={true}
+      />
+      <Animated.View style={{margin: 20,
+        opacity: Animated.add(0.1, Animated.multiply(this.fall2, 1.0)),
+    }}>
         <View style={{alignItems: 'center'}}>
-          <TouchableOpacity onPress={() => this.bs.current.snapTo(0)}>
+          <TouchableOpacity onPress={() => this.bs2.current.snapTo(0)}>
             <View
               style={{
                 height: 100,
@@ -158,7 +269,7 @@ const UploadDocumentScreen = () => {
               }}>
               <ImageBackground
                 source={{
-                  uri: image,
+                  uri: image2,
                 }}
                 style={{height: 100, width: 100}}
                 imageStyle={{borderRadius: 15}}>
@@ -190,14 +301,27 @@ const UploadDocumentScreen = () => {
           </TouchableOpacity>
          
         </View>
-        
+        </Animated.View>
 
+  
+        <BottomSheet
+        ref={this.bs3}
+        snapPoints={[330, 0]}
+        renderContent={this.renderInner3}
+        renderHeader={this.renderHeader}
+        initialSnap={1}
+        callbackNode={this.fall3}
+        enabledGestureInteraction={true}
+      />
+      <Animated.View style={{margin: 20,
+        opacity: Animated.add(0.1, Animated.multiply(this.fall3, 1.0)),
+    }}>
 
         <View style={{alignItems: 'center'}}>
         <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold'}}>
             Pan Card
           </Text>
-          <TouchableOpacity onPress={() => this.bs.current.snapTo(0)}>
+          <TouchableOpacity onPress={() => this.bs3.current.snapTo(0)}>
             <View
               style={{
                 height: 100,
@@ -208,7 +332,7 @@ const UploadDocumentScreen = () => {
               }}>
               <ImageBackground
                 source={{
-                  uri: image,
+                  uri: image3,
                 }}
                 style={{height: 100, width: 100}}
                 imageStyle={{borderRadius: 15}}>
@@ -241,10 +365,17 @@ const UploadDocumentScreen = () => {
       
        
         
-        <TouchableOpacity style={styles.commandButton} onPress={() => {}}>
-          <Text style={styles.panelButtonTitle}>Submit</Text>
-        </TouchableOpacity>
+        
       </Animated.View>
+      <View style={styles.container2}> 
+      <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <Text style={styles.buttonText}>Submit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.goBack()}}>
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
+       
+        </View>
     </View>
   );
 };
@@ -254,6 +385,17 @@ export default UploadDocumentScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center'
+  },
+  container2: {
+   
+     
+    
+      flexDirection: 'row',
+      borderRadius: 10,
+      paddingVertical: 13,
+      justifyContent: 'space-around',
+    alignItems: 'center'
   },
    parent: {
      
@@ -266,7 +408,7 @@ const styles = StyleSheet.create({
   commandButton: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: '#FF6347',
+    backgroundColor: '#000',
     alignItems: 'center',
     marginTop: 10,
   },
@@ -344,5 +486,18 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === 'ios' ? 0 : -12,
     paddingLeft: 10,
     color: '#05375a',
-  },
+  } ,  
+  button: {
+    width:100,
+    backgroundColor:'#1c313a',
+     borderRadius: 25,
+      marginVertical: 10,
+      paddingVertical: 13
+  }
+  , buttonText: {
+    fontSize:16,
+    fontWeight:'500',
+    color:'#ffffff',
+    textAlign:'center'
+  }
 });

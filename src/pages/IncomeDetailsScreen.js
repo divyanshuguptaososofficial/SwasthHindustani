@@ -28,8 +28,16 @@ const IncomeDetailsScreen = ({navigation}) => {
            </TouchableOpacity>  
            </View>
            <IncomeDetails></IncomeDetails>
+<View style={styles.container2}>
+       <TouchableOpacity title ={"Basic Information"} 
+               style={styles.button}  onPress={() => navigation.navigate("Other Details")}           >
+             <Text style={styles.buttonText}>Next</Text>
+           </TouchableOpacity>    
+           <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("Basic Information")}}>
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
+        </View>
         <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
-        <Text style={{color: colors.text}}>Income Details Screen</Text>
    
       </View>
     );
@@ -44,6 +52,16 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent :'center'
   },
+  container2: {
+   
+     
+    
+    flexDirection: 'row',
+    borderRadius: 10,
+    paddingVertical: 13,
+    justifyContent: 'space-around',
+  alignItems: 'center'
+},
   signupTextCont : {
   	flexGrow: 1,
     alignItems:'flex-end',
@@ -92,5 +110,18 @@ const styles = StyleSheet.create({
   	color:'#ffffff',
   	fontSize:16,
   	fontWeight:'500'
+  } ,  
+  button: {
+    width:100,
+    backgroundColor:'#1c313a',
+     borderRadius: 25,
+      marginVertical: 10,
+      paddingVertical: 13
+  }
+  , buttonText: {
+    fontSize:16,
+    fontWeight:'500',
+    color:'#ffffff',
+    textAlign:'center'
   }
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,Button, StyleSheet, StatusBar } from 'react-native';
+import { View, Text,Button, StyleSheet, StatusBar,TouchableOpacity } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import BasicInformation from '../components/BasicInformation';
 const BasicInformationScreen = ({navigation}) => {
@@ -11,7 +11,11 @@ const BasicInformationScreen = ({navigation}) => {
     return (
       <View style={styles.container}>
         <BasicInformation type="Submit"/>
-    
+        <TouchableOpacity title ={"Basic Information"} 
+               style={styles.button}  onPress={() => navigation.navigate("Income Details")}           >
+             <Text style={styles.buttonText}>Next</Text>
+           </TouchableOpacity>    
+         
         <Text style={{color: colors.text}}>Basic Information Screen</Text>
      
       </View>
@@ -42,5 +46,19 @@ const styles = StyleSheet.create({
   	color:'#ffffff',
   	fontSize:16,
   	fontWeight:'500'
+  }
+  ,  
+  button: {
+    width:300,
+    backgroundColor:'#1c313a',
+     borderRadius: 25,
+      marginVertical: 10,
+      paddingVertical: 13
+  }
+  , buttonText: {
+    fontSize:16,
+    fontWeight:'500',
+    color:'#ffffff',
+    textAlign:'center'
   }
 });
