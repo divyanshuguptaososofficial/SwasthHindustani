@@ -8,7 +8,8 @@ import {
   TextInput,
   CheckBox,
   TouchableOpacity,
-  Alert
+  Alert,
+  ScrollView
 } from 'react-native';
 import { RadioButton,Text } from 'react-native-paper';
 import Feather from 'react-native-vector-icons/Feather';
@@ -69,7 +70,7 @@ handleDob = (text) => {
         
     
 		return(
-      
+      <ScrollView>
 			<View style={styles.container}>
                 
            <TextInput style={styles.inputBox} 
@@ -130,6 +131,7 @@ handleDob = (text) => {
              <Text style={styles.buttonText}>Submit</Text>
            </TouchableOpacity>     
   		</View>
+      </ScrollView>
 			)
 	}
 

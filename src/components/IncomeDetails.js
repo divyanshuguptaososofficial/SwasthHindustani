@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Checkbox } from 'react-native-paper';
 import axios from 'axios';
 import {
   StyleSheet,
@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
+  ScrollView
   
 } from 'react-native';
 import {Picker} from '@react-native-community/picker';
@@ -18,8 +19,10 @@ import Slider from '@react-native-community/slider';
 const IncomeDetails = () => {
 
   const [sliderValue, setSliderValue] = useState(15);
-  const [choosenLabel, setChoosenLabel] = useState('Native');
-  const [choosenIndex, setChoosenIndex] = useState('2');
+  
+
+  const [checked, setChecked] = React.useState(false);
+
   state = {
     pancardno: '',
     aadharcardno: '',
@@ -56,7 +59,7 @@ handlestate = (text) => {
 
 	
 		return(
-      
+      <ScrollView>
 			<View style={styles.container}>
                 
                
@@ -69,7 +72,17 @@ handlestate = (text) => {
               keyboardType="name-phone-pad"
               onChangeText = {handlepancardno}
               />
+              <View style={styles.container2}>    
+               <Checkbox 
+      status={checked ? 'checked' : 'unchecked'}
     
+      onPress={() => {
+        setChecked(!checked);
+      }}
+    />
+    <Text style={{color: 'white'}}>Other,if not in above list</Text>
+    </View>
+
        
          <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -138,7 +151,7 @@ handlestate = (text) => {
              <Text style={styles.buttonText}>Submit</Text>
            </TouchableOpacity>     
   		</View>
-      
+      </ScrollView>
 			)
 	}
 styles = StyleSheet.create({

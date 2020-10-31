@@ -7,7 +7,8 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  Alert
+  Alert,
+  ScrollView
 } from 'react-native';
 import {   Paragraph,
   Checkbox,
@@ -15,6 +16,8 @@ import {   Paragraph,
   TouchableRipple,
   useTheme} from 'react-native-paper';
 const OtherDetail = () => {
+
+  const [checked, setChecked] = React.useState(false);
   state = {
     pancardno: '',
     aadharcardno: '',
@@ -69,9 +72,9 @@ handlestate = (text) => {
 
 	
 		return(
-      
+      <ScrollView > 
 			<View style={styles.container}>
-                
+             
            <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
               placeholder="Pan Card Number"
@@ -135,7 +138,16 @@ handlestate = (text) => {
               keyboardType="default"
               onChangeText = {handlestate}
               />
-
+<View style={styles.container2}>    
+               <Checkbox 
+      status={checked ? 'checked' : 'unchecked'}
+    
+      onPress={() => {
+        setChecked(!checked);
+      }}
+    />
+    <Text style={{color: 'white'}}>Is your permanent address same as current address</Text>
+    </View>
      
  
           
@@ -144,9 +156,10 @@ handlestate = (text) => {
            <TouchableOpacity title ={"Other Details"} 
                style={styles.button}   onPress={InsertStudentRecordsToServer}              >
              <Text style={styles.buttonText}>Submit</Text>
-           </TouchableOpacity>     
+           </TouchableOpacity>  
+           
   		</View>
-      
+      </ScrollView>   
 			)
 	}
 styles = StyleSheet.create({
@@ -159,7 +172,14 @@ styles = StyleSheet.create({
       color:'#ffffff'
     }
    ,
-
+   container2: {
+    width:300,
+      borderRadius: 25,
+      paddingHorizontal:16,
+      fontSize:16,
+      color:'#ffffff',
+      marginVertical: 10
+  },
   
     inputBox: {
       width:300,
