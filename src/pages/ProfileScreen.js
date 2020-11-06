@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HomeScreen from './HomeScreen';
-import NotificationsScreen from './NotificatonsScreen';
-import BasicInformationScreen from './BasicInformationScreen';
-import IncomeDetailsScreen from './IncomeDetailsScreen';
-import OtherDetailsScreen from './OtherDetails';
+
+import BasicInformation from './BasicInformation';
+import OtherDetail from './OtherDetail';
 import UploadDocumentScreen from './UploadDocumentScreen';
 import { createStackNavigator } from '@react-navigation/stack';
+import IncomeDetails from './IncomeDetails';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -64,7 +64,7 @@ const BasicInforationStackScreen = ({navigation}) => (
     }
   }}>
   
-          <BasicInforationsStack.Screen name="Basic Information" component={BasicInformationScreen} options={{
+          <BasicInforationsStack.Screen name="Basic Information" component={BasicInformation} options={{
             title:'Basic Information'
         
   
@@ -84,7 +84,7 @@ const BasicInforationStackScreen = ({navigation}) => (
     }
   }}>
   
-          <BasicInforationsStack.Screen name="Home" component={IncomeDetailsScreen} options={{
+          <BasicInforationsStack.Screen name="Home" component={IncomeDetails} options={{
             title:'Income Details'
         
   
@@ -105,7 +105,7 @@ const BasicInforationStackScreen = ({navigation}) => (
       }
     }}>
     
-            <OtherDetailsStack.Screen name="Home" component={OtherDetailsScreen} options={{
+            <OtherDetailsStack.Screen name="Home" component={OtherDetail} options={{
               title:'Other Details'
           
     

@@ -15,7 +15,7 @@ import {   Paragraph,
   Colors,
   TouchableRipple,
   useTheme} from 'react-native-paper';
-const OtherDetail = () => {
+const OtherDetail = ({navigation}) => {
 
   const [checked, setChecked] = React.useState(false);
   state = {
@@ -51,27 +51,21 @@ handlestate = (text) => {
 }
 
  
- InsertStudentRecordsToServer = () =>{
-  axios.post(`http://192.168.29.71:8080/users`, { 
+Next = () =>{
+  navigation.navigate("Upload Documents")
 
-         fname: this.state.fname,       
-         lname: this.state.lname,
-         email: this.state.email,
-         password: this.state.password,
-         dob: this.state.dob,
-         number: this.state.phoneno
+}
+Back = () =>{
+  navigation.navigate("Income Details")
+
+}
 
 
-})
-  .then(res => {
-  
-    Alert.alert("Thank you for registering!!!");
-  })
 
-};
 
 	
 		return(
+      <View style={styles.container}>
       <ScrollView > 
 			<View style={styles.container}>
              
@@ -153,17 +147,24 @@ handlestate = (text) => {
           
    
                
+    <View style={styles.parent}>   
            <TouchableOpacity title ={"Other Details"} 
-               style={styles.button}   onPress={InsertStudentRecordsToServer}              >
-             <Text style={styles.buttonText}>Submit</Text>
-           </TouchableOpacity>  
+               style={styles.button}  onPress={Next}         >
+             <Text style={styles.buttonText}>Next</Text>
+           </TouchableOpacity>    
+           <TouchableOpacity style={styles.button} onPress={Back}>
+          <Text style={styles.buttonText}>Back</Text>
+           </TouchableOpacity>
+  		</View>
            
   		</View>
       </ScrollView>   
+       </View>
 			)
 	}
 styles = StyleSheet.create({
     container : {
+      backgroundColor:'#455a64',
       flexGrow: 1,
       justifyContent:'center',
       alignItems: 'center'
@@ -172,6 +173,14 @@ styles = StyleSheet.create({
       color:'#ffffff'
     }
    ,
+   parent: {
+    
+    
+    flexDirection: 'row',
+    borderRadius: 10,
+    paddingVertical: 13,
+    justifyContent: 'space-around'
+  },
    container2: {
     width:300,
       borderRadius: 25,
@@ -191,7 +200,7 @@ styles = StyleSheet.create({
       marginVertical: 10
     },
     button: {
-      width:300,
+      width:100,
       backgroundColor:'#1c313a',
        borderRadius: 25,
         marginVertical: 10,
