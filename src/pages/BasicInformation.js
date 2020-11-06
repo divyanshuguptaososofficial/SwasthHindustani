@@ -1,9 +1,10 @@
 import React, { Component ,useState } from 'react';
 import DatePicker from 'react-native'
 import axios from 'axios';
+import { useTheme } from '@react-navigation/native';
+
 import {
   StyleSheet,
-  
   View,
   TextInput,
   CheckBox,
@@ -11,10 +12,9 @@ import {
   Alert,
   ScrollView
 } from 'react-native';
-import { RadioButton,Text } from 'react-native-paper';
+import { RadioButton,Text} from 'react-native-paper';
 import Feather from 'react-native-vector-icons/Feather';
-import {useTheme} from 'react-native-paper';
-const BasicInformation = () =>  {
+const BasicInformation = ({navigation}) =>  {
   const [value, setValue] = React.useState('Male');
   const {colors} = useTheme();
 
@@ -48,29 +48,19 @@ handleDob = (text) => {
 
  
  InsertStudentRecordsToServer = () =>{
-  axios.post(`http://192.168.29.71:8080/users`, { 
-
-         fname: this.state.fname,       
-         lname: this.state.lname,
-         email: this.state.email,
-         password: this.state.password,
-         dob: this.state.dob,
-         number: this.state.phoneno
-
-
-})
-  .then(res => {
+    navigation.navigate("Income Details");
   
-    Alert.alert("Thank you for registering!!!");
-  })
+  }
 
-};
+
 
 	
         
     
 		return(
+      <View style={styles.container}>
       <ScrollView>
+        
 			<View style={styles.container}>
                 
            <TextInput style={styles.inputBox} 
@@ -124,21 +114,28 @@ handleDob = (text) => {
     </RadioButton.Group>
     </View>
        
-             
+    <TouchableOpacity title ={"Basic Information"} 
+            style={styles.button}   onPress={InsertStudentRecordsToServer}              >
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
                
-           <TouchableOpacity title ={"Basic Information"} 
-               style={styles.button}   onPress={InsertStudentRecordsToServer}              >
-             <Text style={styles.buttonText}>Submit</Text>
-           </TouchableOpacity>     
+        
   		</View>
+      
+        
       </ScrollView>
-			)
-	}
+     
+      </View>
+     
+			);
+	};
 
 
  styles = StyleSheet.create({
   container : {
-    flexGrow: 1,
+    backgroundColor:'#455a64',
+  
+    flex: 1,
     justifyContent:'center',
     alignItems: 'center'
   },

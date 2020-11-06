@@ -16,7 +16,7 @@ import Slider from '@react-native-community/slider';
 
    
 
-const IncomeDetails = () => {
+const IncomeDetails = ({navigation}) => {
 
   const [sliderValue, setSliderValue] = useState(15);
   
@@ -57,9 +57,33 @@ handlestate = (text) => {
   this.setState({ state: text })
 }
 
-	
+Next = () =>{
+  navigation.navigate("Other Details");
+
+}
+Back = () =>{
+  navigation.navigate("Basic Information");
+
+}
 		return(
+      
+      <View style={styles.container}>
+        <View style={styles.parent}>
+                <TouchableOpacity title ={"Income Details"} 
+               style={styles.parentLeftbutton}             >
+             <Text style={styles.buttonText}>Salaried</Text>
+             <Text style={styles.buttonText}>(regular monthly income)</Text>
+
+           </TouchableOpacity>  
+           <TouchableOpacity title ={"Income Details"} 
+               style={styles.parentRightbutton}              >
+             <Text style={styles.buttonText}>Business</Text>
+             <Text style={styles.buttonText}>(runs own business)</Text>
+
+           </TouchableOpacity>  
+           </View>
       <ScrollView>
+        	
 			<View style={styles.container}>
                 
                
@@ -145,22 +169,30 @@ handlestate = (text) => {
      
 
    
-               
+    <View style={styles.parent}>   
            <TouchableOpacity title ={"Other Details"} 
-               style={styles.button}               >
-             <Text style={styles.buttonText}>Submit</Text>
-           </TouchableOpacity>     
+               style={styles.button}  onPress={Next}         >
+             <Text style={styles.buttonText}>Next</Text>
+           </TouchableOpacity>    
+           <TouchableOpacity style={styles.button} onPress={Back}>
+          <Text style={styles.buttonText}>Back</Text>
+           </TouchableOpacity>
   		</View>
+      </View>
       </ScrollView>
-			)
-	}
+      </View>
+
+     
+			);
+	};
 styles = StyleSheet.create({
     container : {
-    
-      flexGrow: 1,
+      backgroundColor:'#455a64',
+      flex: 1,
       justifyContent:'center',
       alignItems: 'center'
     },
+   
    
     color1:{
       color:'#ffffff'
@@ -175,7 +207,7 @@ styles = StyleSheet.create({
       marginVertical: 10
   },
    parent: {
-     
+    
     
     flexDirection: 'row',
     borderRadius: 10,
@@ -212,7 +244,7 @@ styles = StyleSheet.create({
       marginVertical: 10
     },
     button: {
-      width:300,
+      width:100,
       backgroundColor:'#1c313a',
        borderRadius: 25,
         marginVertical: 10,
