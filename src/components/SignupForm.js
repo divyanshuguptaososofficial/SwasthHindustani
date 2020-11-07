@@ -41,14 +41,14 @@ handleDob = (text) => {
 
  
  InsertStudentRecordsToServer = () =>{
-  axios.post(`http://192.168.29.71:8080/users`, { 
+  axios.post(`http://192.168.56.1:8080/register`, { 
 
-         fname: this.state.fname,       
-         lname: this.state.lname,
+         //fname: this.state.fname,       
+         //lname: this.state.lname,
          email: this.state.email,
          password: this.state.password,
-         dob: this.state.dob,
-         number: this.state.phoneno
+        // dob: this.state.dob,
+         //number: this.state.phoneno
 
 
 })
