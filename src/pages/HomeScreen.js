@@ -2,9 +2,8 @@ import React from 'react';
 import { View, Text, Button, StyleSheet, StatusBar ,TouchableOpacity} from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {dummyData} from './DummyData'
+import Carousel from '../components/Carousel';
 const HomeScreen = ({navigation}) => {
 
   const { colors } = useTheme();
@@ -61,11 +60,13 @@ const HomeScreen = ({navigation}) => {
        
       </View>
      
+      <Carousel data = {dummyData}></Carousel>
       <Button
         title="Go to details screen"
         color= '#000000'
         onPress={() => navigation.navigate("Notifications")}
       />
+
       </View>
     );
 };
