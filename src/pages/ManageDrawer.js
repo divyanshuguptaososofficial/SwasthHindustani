@@ -14,7 +14,7 @@ import Login from '../pages/Login';
 const Drawer = createDrawerNavigator();
 
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     
     <NavigationContainer>

@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {dummyData} from './DummyData'
 import Carousel from '../components/Carousel';
 import {TextInput,ScrollView} from 'react-native-gesture-handler';
+import CreditCardDisplay from 'react-native-credit-card-display';
 const HomeScreen = ({navigation}) => {
 
   const { colors } = useTheme();
@@ -133,15 +134,17 @@ const HomeScreen = ({navigation}) => {
                             }}>The Rashtriya Kishor Swasthya Karyakram</Text>
                            
                         </View>
+                       
                         <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#fff",
-                            paddingTop:35,
-                            alignSelf :'center'
-                        }}>
-                            APPLY NOW
-                        </Text>
+                          paddingHorizontal:10,
+                          fontWeight:"bold",
+                          color:"#fff",
+                          paddingTop:35,
+                          alignSelf :'center'
+                      }}> APPLY NOW
+                         
+                      </Text>
+                       
                     </TouchableOpacity>
 
                     <TouchableOpacity 
@@ -149,7 +152,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#FFF",
+                            backgroundColor:"#000",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -166,14 +169,15 @@ const HomeScreen = ({navigation}) => {
                         }}>
                             <Text style={{
                                 fontWeight:"bold",
-                                fontSize: 25
-                            }}>The Rashtriya Kishor Swasthya Karyakram</Text>
+                                fontSize: 25,
+                                color:"#fff"
+                            }}>The Rashtriya  Swasthya Bima Yojana</Text>
                            
                         </View>
                         <Text style={{
                             paddingHorizontal:10,
                             fontWeight:"bold",
-                            color:"#b1e5d3",
+                            color:"#fff",
                             paddingTop:35,
                             alignSelf :'center'
                         }}>
@@ -205,7 +209,7 @@ const HomeScreen = ({navigation}) => {
                                 fontWeight:"bold",
                                 fontSize: 25,
                                 color:"#fff"
-                            }}>The Rashtriya Kishor Swasthya Karyakram</Text>
+                            }}>The Rashtriya  Swasthya Bima Yojana</Text>
                            
                         </View>
                         <Text style={{
@@ -222,6 +226,19 @@ const HomeScreen = ({navigation}) => {
 
                 </ScrollView>
 
+<View style={{
+                           
+                            alignSelf :'center'
+                        }}>
+                            <CreditCardDisplay
+    number={4242424242424242}
+    cvc={123}
+    expiration="04/21"
+    name="Divyanshu Gupta"
+    since="2017"
+  />
+                        </View>
+                
                 <View style={{
                   paddingTop:5,
                    flexDirection:"row",
@@ -284,54 +301,39 @@ const HomeScreen = ({navigation}) => {
                                 fontWeight:"bold",
                                 fontSize: 25,
                                 color:"#fff"
-                            }}>The Rashtriya Kishor Swasthya Karyakram</Text>
-                           
+                            }}>Max HealthCare Hospital</Text>
+                          
                         </View>
+                        <Text style={{
+                                alignSelf :'center',
+                                fontSize: 15,
+                                color:"#fff"
+                            }}>Kurla West,Mumbai</Text>
+
+                        <Text style={{
+                                alignSelf :'center',
+                                fontWeight:"bold",
+                                fontSize: 15,
+                                color:"#fff"
+                            }}>Distance: 2 km</Text>
+
+                      <Text style={{
+                                alignSelf :'center',
+                                fontWeight:"bold",
+                                fontSize: 15,
+                                color:"#fff",
+                                paddingTop:35,
+                                paddingHorizontal:10,
+                            }}>EMI starting at Rs 1000.</Text>
+                            
                         <Text style={{
                             paddingHorizontal:10,
                             fontWeight:"bold",
                             color:"#fff",
-                            paddingTop:35,
-                            alignSelf :'center'
-                        }}>
-                            APPLY NOW
-                        </Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity 
-                        onPress={()=>navigation.navigate("Detail")}
-                        style={{
-                            height:250,
-                            elevation:2,
-                            backgroundColor:"#FFF",
-                            marginLeft:20,
-                            marginTop:20,
-                            borderRadius:15,
-                            marginBottom:10,
-                            width:160
-                        }}
-                    >
-                       
-                        <View style={{
-                            flexDirection:"row",
                             paddingTop:10,
-                            paddingHorizontal:10,
-                            alignItems:"center"
-                        }}>
-                            <Text style={{
-                                fontWeight:"bold",
-                                fontSize: 25
-                            }}>The Rashtriya Kishor Swasthya Karyakram</Text>
-                           
-                        </View>
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#b1e5d3",
-                            paddingTop:35,
                             alignSelf :'center'
                         }}>
-                            APPLY NOW
+                            View All
                         </Text>
                     </TouchableOpacity>
 
@@ -359,20 +361,101 @@ const HomeScreen = ({navigation}) => {
                                 fontWeight:"bold",
                                 fontSize: 25,
                                 color:"#fff"
-                            }}>The Rashtriya Kishor Swasthya Karyakram</Text>
-                           
+                            }}>Max HealthCare Hospital</Text>
+                          
                         </View>
+                        <Text style={{
+                                alignSelf :'center',
+                                fontSize: 15,
+                                color:"#fff"
+                            }}>Kurla West,Mumbai</Text>
+
+                        <Text style={{
+                                alignSelf :'center',
+                                fontWeight:"bold",
+                                fontSize: 15,
+                                color:"#fff"
+                            }}>Distance: 2 km</Text>
+
+                      <Text style={{
+                                alignSelf :'center',
+                                fontWeight:"bold",
+                                fontSize: 15,
+                                color:"#fff",
+                                paddingTop:35,
+                                paddingHorizontal:10,
+                            }}>EMI starting at Rs 1000.</Text>
+                            
                         <Text style={{
                             paddingHorizontal:10,
                             fontWeight:"bold",
                             color:"#fff",
-                            paddingTop:35,
+                            paddingTop:10,
                             alignSelf :'center'
                         }}>
-                            APPLY NOW
+                            View All
                         </Text>
                     </TouchableOpacity>
 
+                    <TouchableOpacity 
+                        onPress={()=>navigation.navigate("Detail")}
+                        style={{
+                            height:250,
+                            elevation:2,
+                            backgroundColor:"#000",
+                            marginLeft:20,
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                       
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10,
+                            alignItems:"center"
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold",
+                                fontSize: 25,
+                                color:"#fff"
+                            }}>Max HealthCare Hospital</Text>
+                          
+                        </View>
+                        <Text style={{
+                                alignSelf :'center',
+                                fontSize: 15,
+                                color:"#fff"
+                            }}>Kurla West,Mumbai</Text>
+
+                        <Text style={{
+                                alignSelf :'center',
+                                fontWeight:"bold",
+                                fontSize: 15,
+                                color:"#fff"
+                            }}>Distance: 2 km</Text>
+
+                      <Text style={{
+                                alignSelf :'center',
+                                fontWeight:"bold",
+                                fontSize: 15,
+                                color:"#fff",
+                                paddingTop:35,
+                                paddingHorizontal:10,
+                            }}>EMI starting at Rs 1000.</Text>
+                            
+                        <Text style={{
+                            paddingHorizontal:10,
+                            fontWeight:"bold",
+                            color:"#fff",
+                            paddingTop:10,
+                            alignSelf :'center'
+                        }}>
+                            View All
+                        </Text>
+                    </TouchableOpacity>
                 </ScrollView>
       <Button
         title="Go to details screen"
