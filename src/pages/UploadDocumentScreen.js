@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TextInput,
   StyleSheet,
+  Alert
 
 } from 'react-native';
 
@@ -27,6 +28,22 @@ const UploadDocumentScreen = ({navigation}) => {
   const [image3, setImage3] = useState('https://api.adorable.io/avatars/80/abott@adorable.png');
 
   const {colors} = useTheme();
+
+  const createTwoButtonAlert = () =>
+Alert.alert(
+  "Alert Title",
+  "You won't be able to change any of your information beyound this point.Do you want to continue?",
+  [
+    {
+      text: "Disagree",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel"
+    },
+    { text: "Agree", onPress: () => console.log("Agree") }
+  ],
+  { cancelable: false }
+);
+
 
   const takePhotoFromCamera = () => {
     ImagePicker.openCamera({
@@ -368,7 +385,7 @@ const UploadDocumentScreen = ({navigation}) => {
         
       </Animated.View>
       <View style={styles.container2}> 
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
+      <TouchableOpacity style={styles.button} onPress={createTwoButtonAlert}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {navigation.goBack()}}>
