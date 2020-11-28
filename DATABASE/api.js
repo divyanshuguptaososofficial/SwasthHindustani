@@ -5,7 +5,7 @@ const { g_USER} = require("./model.js");
 const { g_app  }   =  require("./dbcon.js")
 g_app.use(express.urlencoded());
 
-// Parse JSON bodies (as sent by API clients)
+// Parse JSON bodies (as sent by API clients.)
 g_app.use(express.json());
 
 g_app.post('/users', function(req, res) {
