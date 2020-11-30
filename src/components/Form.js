@@ -10,15 +10,30 @@ import {
   TouchableOpacity,
   Alert 
 } from 'react-native';
+var g_id="";
+var g_name="";
+var g_email="";
+var g_phone  ="";
+var g_age= "";
+var g_addone="";
+var g_addtwo="";
+var g_pincode="";
+var g_pan="";
+var g_aadhaar="";
 import {Actions} from 'react-native-router-flux';
+
 export default class Login extends Component {
   state = {
     email: '',
     password: ''
+    
  }
  handleEmail = (text) => {
     this.setState({ email: text })
+   // g_email: this.state.email
  }
+
+
  handlePassword = (text) => {
     this.setState({ password: text })
  }
@@ -39,15 +54,28 @@ export default class Login extends Component {
     { cancelable: false }
   );
   home(){
-    axios.post(`http://192.168.29.71:8080/login`, { 
+    axios.post(`http://192.168.56.1:8080/login`, { 
 
       email: this.state.email,
       password: this.state.password
 
 })
 .then(res => {
+ 
+ const name = res.data.name; 
+ //const g_id = res.data.id;
+  g_id = res.data.id;
+  g_name = res.data.name;
+  g_email = res.data.email;
+  g_phone = res.data.phone;
+  g_age =    res.data.dob;
+  g_pan=     res.data.pan;
+  g_aadhaar= res.data.aadhaar;
+  g_addone = res.data.addone;
+  g_addtwo = res.data.addtwo;
+  g_pincode=res.data.pincode;
 
- Alert.alert("Welcome")
+ Alert.alert("WELCOME " + g_aadhaar);
  Actions.home()
 })
     
@@ -64,6 +92,7 @@ export default class Login extends Component {
               keyboardType="email-address"
               onSubmitEditing={()=> this.password.focus()}
               onChangeText = {this.handleEmail}
+
               />
           <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -84,6 +113,7 @@ export default class Login extends Component {
 			)
 	}
 }
+export { g_id, g_name,g_email, g_phone,g_age, g_pincode,g_pan,g_aadhaar,g_addone,g_addtwo};
 
 const styles = StyleSheet.create({
   container : {
@@ -116,3 +146,4 @@ const styles = StyleSheet.create({
   }
   
 });
+
