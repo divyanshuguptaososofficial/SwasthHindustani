@@ -295,9 +295,8 @@ var styles = StyleSheet.create({
     alignItems:'center',
     paddingVertical:5,
     paddingHorizontal:10,
-    borderRadius:100,
     backgroundColor:'#f2f2f2',
-    marginTop:10,
+    margin:10,
   
   }
 });
