@@ -13,13 +13,14 @@ import {TextInput,ScrollView} from 'react-native-gesture-handler';
 import themes from '../config/themes';
 const w = Dimensions.get('screen').width;
 
-const RecipePopular = ({onPress}) => {
+const ChooseCategory = ({onPress}) => {
   
   return(
   <View style={styles.container}>
   <View style={{
     flexDirection:"row",
     paddingHorizontal:20,
+    paddingTop:15,
     width:"100%",
     alignItems:"center"
 }}>
@@ -153,7 +154,7 @@ const RecipePopular = ({onPress}) => {
   );
 };
 
-export default RecipePopular;
+export default ChooseCategory;
 
 const styles = StyleSheet.create({
   container: {

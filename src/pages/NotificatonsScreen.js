@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TextInput
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import LinearGradient from "react-native-linear-gradient";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -15,31 +16,31 @@ import ChooseCategory from "../SearchComponents/ChooseCategory"
 var data = [
   {
             name:'Hospital 1',
-            image: require("../assets/images/star.png"),
+            image: require("../assets/images/onboarding-1.png"),
             rating: 3,
             price: "Distance: 2 km"
         },
         {
             name:'Hospital 2',
-            image: require("../assets/images/star.png"),
+            image: require("../assets/images/onboarding-2.png"),
             rating: 5,
             price: "Distance: 3 km"
         },
         {
             name:'Hospital 3',
-            image: require("../assets/images/star.png"),
+            image: require("../assets/images/onboarding-3.png"),
             rating: 4,
             price: "Distance: 4 km"
         },
         {
             name:'Hospital 4',
-            image: require("../assets/images/star.png"),
+            image: require("../assets/images/onboarding-1.png"),
             rating: 2,
             price: "Distance: 5 km"
         },
         {
             name:'Hospital 5',
-            image: require("../assets/images/star.png"),
+            image: require("../assets/images/onboarding-2.png"),
             rating: 5,
             price: "Distance: 6 km"
         },
@@ -117,7 +118,6 @@ export default class All extends React.Component{
           </TouchableOpacity>
 
         </LinearGradient>
-        
     )
   }
 
@@ -131,51 +131,73 @@ export default class All extends React.Component{
     )
   }
 
-  _search(text){
-      let data = [];
-      this.state.data_temp.map(function(value){
-        if(value.name.indexOf(text) > -1){
-          data.push(value);
-        }
-      });
-      this.setState({
-        data:data,
-        search:text
-      });
+  _search(){
+   // navigate("Explore");
   }
 
   render(){
     return(
+      <ScrollView>
       <View style={styles.container}>
+        <Text style={{
+          paddingTop:15,
+          paddingLeft:15,
+          paddingBottom:15,
+          fontWeight:"bold",
+          fontSize:25,
+          color:"#000",
+          alignItems:"center"
+      }} >Services For You</Text>
           <View style={styles.section}>
+          <Ionicons 
+              name="ios-search"
+              color="gray"
+              size={20}/>
+              <TouchableOpacity
+             
+             onPress={()=>this._search("")}
+             style={{paddingHorizontal:10}}> 
               <TextInput 
+             
                 placeholder="Search.."
-                style={{ flex:1, marginLeft:10}}
+                style={{ flex:1,marginTop:5}}
                 value={this.state.search}
                 onChangeText={(text)=>this._search(text)}
               />
-              <TouchableOpacity
-              onPress={()=>this._search("")}
-              style={{paddingHorizontal:10}}>
-                <Ionicons 
-                  name="ios-close"
-                  color="gray"
-                  size={20}
-                />
+              
+              
+
+                
               </TouchableOpacity>
            
 
           </View>
-          
-         <ChooseCategory/>
-         <View style={{width:"50%"}}>
-      <Text style={{
-          fontWeight:"bold",
-          fontSize:17,
-          color:"#000"
-      }}>Top Rated Hospitals</Text>
-      </View>
-          <View style={styles.flatList}>
+        <View style={styles.ChooseCategory}><ChooseCategory/>
+        
+        
+        </View>
+        
+         
+        <View style={{
+    flexDirection:"row",
+    paddingHorizontal:20,
+    paddingTop:15,
+    width:"100%",
+    alignItems:"center",
+   
+}}></View>
+    <View style={{width:"50%"}}>
+         <Text style={{
+             fontWeight:"bold",
+             fontSize:17,
+             color:"#000",
+             paddingLeft:15,
+             paddingBottom:15
+         }}>Top Rated Hospitals</Text>
+        
+
+    </View>
+            <View style={styles.flatList}>
               <FlatList 
                 data={this.state.data}
                 renderItem={this.renderItem}
@@ -184,9 +206,14 @@ export default class All extends React.Component{
                 showsVerticalScrollIndicator={false}
               />
           </View>
+          
+      
 
+   
+      
          
       </View>
+      </ScrollView>
       
     )
   }
@@ -198,9 +225,16 @@ var styles = StyleSheet.create({
     backgroundColor:'white',
     paddingBottom:5
   },
+  ChooseCategory: {
+    flexDirection:"row",
+    
+    width:"100%",
+    alignItems:"center"
+  },
   flatList: {
     flex:1,
-    marginTop:10
+    paddingLeft:10,
+    paddingRight:10
   },
   item: {
     flex:1,
@@ -263,6 +297,7 @@ var styles = StyleSheet.create({
     paddingHorizontal:10,
     borderRadius:100,
     backgroundColor:'#f2f2f2',
-    marginTop:10
+    marginTop:10,
+  
   }
 });
