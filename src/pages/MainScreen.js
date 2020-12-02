@@ -7,7 +7,16 @@ import ExploreScreen from './ExploreScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProfileScreen from './ProfileScreen';
-
+import { 
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  Picker
+} from "react-native";
 const HomeStack = createStackNavigator();
 const ExploreStack = createStackNavigator();
 const NotificationsStack = createStackNavigator();
@@ -90,12 +99,17 @@ const HomeStackScreen = ({navigation}) => (
       }
     }}>
               <NotificationsStack.Screen name="Notification" component={NotificationsScreen} options={{
-              title:'Notification',
+              title:'Services',
               headerLeft: ()=> (
              
                 <Icon.Button name="md-menu" size={25} backgroundColor='#000000'
               onPress={() => navigation.openDrawer()}></Icon.Button>
+              
               )
+             
+              
+                
+            
               }}/>
       
             </NotificationsStack.Navigator>

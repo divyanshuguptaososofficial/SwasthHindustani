@@ -5,7 +5,6 @@ import {
   StyleSheet,
   FlatList,
   Image,
- LayoutAnimation, Platform, UIManager,
   TouchableOpacity,
   TextInput
 } from "react-native";
@@ -40,11 +39,12 @@ export default class Results extends React.Component{
                  
                     placeholder="Search.."
                     style={{ flex:1,marginTop:5}}
-                    
+                    value={this.state.search}
+                    onChangeText={(text)=>this._search(text)}
                   />
                   <TouchableOpacity
                  
-                  
+                  onPress={()=>this._search("")}
                   style={{paddingHorizontal:10}}> 
                   
     
@@ -57,26 +57,8 @@ export default class Results extends React.Component{
                
     
               </View>
-              <View style={{backgroundColor:"#000",height:10,width:"100%"}}></View>
               </View>
               </ScrollView>
         )
 }
 }
-var styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor:'white',
-    paddingBottom:5
-  },
-  section: {
-    flexDirection:'row',
-    alignItems:'center',
-    paddingVertical:5,
-    paddingHorizontal:10,
-    borderRadius:100,
-    backgroundColor:'#f2f2f2',
-    marginTop:10,
-  
-  }
-});
