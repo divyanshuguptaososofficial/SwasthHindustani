@@ -8,11 +8,14 @@ import {
   TouchableOpacity,
   TextInput
 } from "react-native";
+import {Actions} from 'react-native-router-flux';
+
 import { ScrollView } from "react-native-gesture-handler";
 import LinearGradient from "react-native-linear-gradient";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ChooseCategory from "../SearchComponents/ChooseCategory"
+
 var data = [
   {
             name:'Hospital 1',
@@ -55,7 +58,9 @@ export default class All extends React.Component{
       search: ''
     }
   }
-
+  All() {
+    Actions.All()//signup button function for navigating to signup page
+  }
   _rating(item){
       let rating = [];
       for(i=0;i<item;i++){

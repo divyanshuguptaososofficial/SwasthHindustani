@@ -15,3 +15,18 @@ export const dummyData =
                 description: "Free Home Delivery.",
                 id: 3
         }]
+
+        export const dummyData2 =
+        [{
+                url: 'https://i.ibb.co/QX7Z2Mt/download.jpg',
+              
+
+        },
+        {
+                 url: 'https://i.ibb.co/zQwXKmX/best-hospital-kolkata.png',
+                
+        },
+        {
+                 url: 'https://i.ibb.co/gdrRwgH/Hospital-building-medical-icon-Healthcare-hospital-and-medical-diagnostics-Urgency-and-emergency-ser.jpg',
+               
+        }]
