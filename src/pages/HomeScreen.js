@@ -7,7 +7,7 @@ import Carousel from '../components/Carousel';
 import {TextInput,ScrollView} from 'react-native-gesture-handler';
 import CreditCardDisplay from 'react-native-credit-card-display';
 const HomeScreen = ({navigation}) => {
-
+  
   const { colors } = useTheme();
 
   const theme = useTheme();

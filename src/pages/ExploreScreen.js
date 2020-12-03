@@ -13,7 +13,8 @@ import LinearGradient from "react-native-linear-gradient";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {Picker} from '@react-native-community/picker';
 import { List , Button ,Text} from 'react-native-paper';
-
+import Hospital from "./SelectedHospital";
+import {Actions} from 'react-native-router-flux';
 var data = [
   {
     
@@ -65,6 +66,8 @@ var data = [
             price: "Open 9am-11pm"
         },
 ];
+  
+
 
 export default class Results extends React.Component{
   state = {
@@ -72,6 +75,9 @@ export default class Results extends React.Component{
     search: 'Nearest First',
     
  }
+ Hospital() {
+  Actions.Hospital()//signup button function for navigating to signup page
+}
  constructor(props){
   super(props);
   this.state={
@@ -138,7 +144,7 @@ renderItem = ({item}) => {
     
    <View style={{flexDirection:"row",marginLeft:60}}>
 
-   <Button>Book Now</Button>
+   <Button onPress={this.Hospital}>Book Now</Button>
    <Button>View All </Button>
    
 
