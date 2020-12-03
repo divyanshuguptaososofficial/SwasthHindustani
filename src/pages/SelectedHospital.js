@@ -5,12 +5,13 @@ import {
   View,
   StatusBar ,
   Button,
+  Image,
   TouchableOpacity
 } from 'react-native';
 import { configureFonts, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import Logo from '../components/Logo';
 import Form from '../components/Form';
-
+import { ProgressBar } from 'react-native-paper';
 import {Actions} from 'react-native-router-flux';
 import {dummyData2} from './DummyData'
 import Carousel from '../components/Carousel';
@@ -19,7 +20,19 @@ import { ScrollView } from "react-native-gesture-handler";
 
 export default class Hospital extends Component {
  
-	
+  _rating(item){
+    let rating = [];
+    for(i=0;i<item;i++){
+      rating.push(
+        <Image 
+          source={require("../assets/images/star.png")}
+          style={{width:20, height:20, marginRight:3}}
+          resizeMode="cover"
+        />
+      )
+    }
+    return rating;
+  }
 
 
  
@@ -30,17 +43,33 @@ export default class Hospital extends Component {
 			<Carousel data = {dummyData2}></Carousel>
 
 <View style={{marginLeft:20,marginTop:20}}>
-				<View style={{flexDirection:"row"}}>
+  <View style={{flexDirection:"row"}}>
+				<View style={{flexDirection:"column"}}>
 
           <Text style={styles.text}> Diabetes Care</Text>
-         
-
+          <Text style={styles.text}> Dr. Bhagvi Saglani</Text>
+          <Text style={styles.text2} >Diabetes Center</Text>
           
+        </View>
+
+        <View style={{marginLeft:90}}>
+        <Ionicons 
+       
+       name="ios-map"
+       color="#F67018"
+       size={30}
+       md="md-map"/>
 
         </View>
         
-        <Text style={styles.text}> Dr. Bhagvi Saglani</Text>
-<Text style={styles.text2} >Diabetes Center</Text>
+        </View>
+          
+               
+                    
+                  
+      
+        
+
 
         </View>
         <View style={styles.categoryContainer}>
@@ -74,6 +103,28 @@ export default class Hospital extends Component {
 <TouchableOpacity style={styles.reviewbtn}><Text  style={styles.reviewtxt}>Write a review</Text></TouchableOpacity>
 
 </View>
+<View style={{marginLeft:20,marginTop:20,flexDirection:"column"}}>
+
+<View style={{flexDirection:"row"}}>
+<View>
+<View style={{flexDirection:"row"}}><Text style={{color:"#000",fontSize:14,fontWeight:"bold",marginRight:5}}>5</Text><ProgressBar progress={0.5} color={"#F67018"} style={styles.progress} /></View>
+<View style={{flexDirection:"row"}}><Text style={{color:"#000",fontSize:14,fontWeight:"bold",marginRight:5}}>4</Text><ProgressBar progress={1} color={"#138808"} style={styles.progress} /></View>
+<View style={{flexDirection:"row"}}><Text style={{color:"#000",fontSize:14,fontWeight:"bold",marginRight:5}}>3</Text><ProgressBar progress={0.5} color={"#F67018"} style={styles.progress}/></View>
+<View style={{flexDirection:"row"}}><Text style={{color:"#000",fontSize:14,fontWeight:"bold",marginRight:5}}>2</Text><ProgressBar progress={0.5} color={"#F67018"} style={styles.progress}/></View>
+<View style={{flexDirection:"row"}}><Text style={{color:"#000",fontSize:14,fontWeight:"bold",marginRight:5}}>1</Text><ProgressBar style={styles.progress} progress={0.5} color={"#F67018"} /></View>
+</View>
+
+<View style={{marginLeft:20,marginTop:20,flexDirection:"column"}}>
+<Text style={{color:"#000",fontSize:20,fontWeight:"bold",marginRight:5}}>4.2</Text>
+<View style={styles.rating}>
+            {this._rating(4)}
+          </View>
+
+          <Text style={{color:"#2F2F2A",fontSize:14,fontWeight:"bold",marginRight:5}}>(by 87 users)</Text>
+
+          </View>
+</View>
+</View>
 
 
 			</View>	
@@ -88,6 +139,11 @@ const styles = StyleSheet.create({
     flex: 1,
     
   },
+  rating: {
+    marginTop:5,
+    
+    flexDirection:'row'
+  },
   horizontal:{
     margin:5,
     borderColor:"#CDCDCD",
@@ -100,9 +156,19 @@ const styles = StyleSheet.create({
    borderRadius:14,
    borderStyle:"solid",
    borderWidth:5,
-   width:107,
+   width:130,
     height:30,
 
+  },
+  progress:{
+    backgroundColor:"#B1B1B1",
+    borderRadius:4,
+    width:176,
+    height:10,
+    marginBottom:5,
+     marginRight:5,
+    opacity:1,
+    
   },
   reviewtxt:{
     fontSize:12,
