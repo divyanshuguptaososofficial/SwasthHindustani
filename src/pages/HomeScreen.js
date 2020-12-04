@@ -19,6 +19,8 @@ const HomeScreen = ({navigation}) => {
       style={{height:400}}
   >
       <View style={styles.container}>
+
+          <View style={{backgroundColor:"#F67018"}}>
         <View style={styles.categoryContainer}>
         <TouchableOpacity
           style={styles.categoryBtn}
@@ -26,7 +28,7 @@ const HomeScreen = ({navigation}) => {
             navigation.navigate('CardListScreen', {title: 'Book an Appointment'})
           }>
           <View style={styles.categoryIcon}>
-            <Ionicons name="ios-calendar" size={35} color="#FFF" />
+            <Ionicons name="ios-calendar" size={35} color="#000" />
           </View>
           <Text style={styles.categoryBtnTxt}>Book an Appointment</Text>
         </TouchableOpacity>
@@ -36,7 +38,7 @@ const HomeScreen = ({navigation}) => {
             navigation.navigate('CardListScreen', {title: ' Order Medicines'})
           }>
           <View style={styles.categoryIcon}>
-          <Ionicons name="ios-medkit" size={35} color="#FFF" />
+          <Ionicons name="ios-medkit" size={35} color="#000" />
 
           </View>
           <Text style={styles.categoryBtnTxt}>Order Medicines</Text>
@@ -47,7 +49,7 @@ const HomeScreen = ({navigation}) => {
             navigation.navigate('CardListScreen', {title: ' Order Medicines'})
           }>
           <View style={styles.categoryIcon}>
-          <Ionicons name="ios-videocam" size={35} color="#FFF" />
+          <Ionicons name="ios-videocam" size={35} color="#000" />
 
           </View>
           <Text style={styles.categoryBtnTxt}>Virtual Consultation</Text>
@@ -58,7 +60,7 @@ const HomeScreen = ({navigation}) => {
             navigation.navigate('CardListScreen', {title: ' Order Medicines'})
           }>
           <View style={styles.categoryIcon}>
-          <Ionicons name="ios-flask" size={35} color="#FFF" />
+          <Ionicons name="ios-flask" size={35} color="#000" />
 
           </View>
           <Text style={styles.categoryBtnTxt}>Book Blood Test</Text>
@@ -66,8 +68,10 @@ const HomeScreen = ({navigation}) => {
     
        
       </View>
-     
+ 
+      </View>
       <Carousel data = {dummyData}></Carousel>
+     
 
       <View style={{
                    flexDirection:"row",
@@ -86,15 +90,17 @@ const HomeScreen = ({navigation}) => {
                    </View>
                    <View style={{width:"50%", alignItems:"flex-end"}}>
                         <View style={{
-                            backgroundColor:"#000",
                             paddingHorizontal:20,
                             paddingVertical:5,
-                            borderRadius:15
+                            borderRadius:15,
+                            borderColor:"#F67018",
+                            borderStyle:"solid",
+                            borderWidth:2,
                         }}>
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize:13,
-                                color:"#FFF"
+                 color:"#F67018"
                             }}>View All</Text>
                         </View>
                    </View>
@@ -112,7 +118,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#000",
+                            backgroundColor:"#fff",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -130,20 +136,13 @@ const HomeScreen = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize: 25,
-                                color:"#fff"
+                                color:"#000"
                             }}>The Rashtriya Kishor Swasthya Karyakram</Text>
                            
                         </View>
+                        <TouchableOpacity style={styles.button}  ><Text style={styles.buttonText}>Apply Now</Text></TouchableOpacity>
+
                        
-                        <Text style={{
-                          paddingHorizontal:10,
-                          fontWeight:"bold",
-                          color:"#fff",
-                          paddingTop:35,
-                          alignSelf :'center'
-                      }}> APPLY NOW
-                         
-                      </Text>
                        
                     </TouchableOpacity>
 
@@ -152,7 +151,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#000",
+                            backgroundColor:"#fff",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -170,19 +169,12 @@ const HomeScreen = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize: 25,
-                                color:"#fff"
+                                color:"#000"
                             }}>The Rashtriya  Swasthya Bima Yojana</Text>
                            
                         </View>
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#fff",
-                            paddingTop:35,
-                            alignSelf :'center'
-                        }}>
-                            APPLY NOW
-                        </Text>
+                        <TouchableOpacity style={styles.button}  ><Text style={styles.buttonText}>Apply Now</Text></TouchableOpacity>
+
                     </TouchableOpacity>
 
                     <TouchableOpacity 
@@ -190,7 +182,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#000",
+                            backgroundColor:"#fff",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -208,19 +200,12 @@ const HomeScreen = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize: 25,
-                                color:"#fff"
+                                color:"#000"
                             }}>The Rashtriya  Swasthya Bima Yojana</Text>
                            
                         </View>
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#fff",
-                            paddingTop:35,
-                            alignSelf :'center'
-                        }}>
-                            APPLY NOW
-                        </Text>
+                        <TouchableOpacity style={styles.button}  ><Text style={styles.buttonText}>Apply Now</Text></TouchableOpacity>
+
                     </TouchableOpacity>
 
 
@@ -257,15 +242,17 @@ const HomeScreen = ({navigation}) => {
                    </View>
                    <View style={{width:"50%", alignItems:"flex-end"}}>
                         <View style={{
-                            backgroundColor:"#000",
                             paddingHorizontal:20,
                             paddingVertical:5,
-                            borderRadius:15
+                            borderRadius:15,
+                            borderColor:"#F67018",
+                            borderStyle:"solid",
+                            borderWidth:2,
                         }}>
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize:13,
-                                color:"#fff"
+                                color:"#F67018"
                             }}>View All</Text>
                         </View>
                    </View>
@@ -282,7 +269,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#000",
+                            backgroundColor:"#fff",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -300,41 +287,34 @@ const HomeScreen = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize: 25,
-                                color:"#fff"
+                                color:"#000"
                             }}>Max HealthCare Hospital</Text>
                           
                         </View>
                         <Text style={{
                                 alignSelf :'center',
                                 fontSize: 15,
-                                color:"#fff"
+                                color:"#000"
                             }}>Kurla West,Mumbai</Text>
 
                         <Text style={{
                                 alignSelf :'center',
                                 fontWeight:"bold",
                                 fontSize: 15,
-                                color:"#fff"
+                                color:"#138808"
                             }}>Distance: 2 km</Text>
 
                       <Text style={{
                                 alignSelf :'center',
                                 fontWeight:"bold",
                                 fontSize: 15,
-                                color:"#fff",
+                                color:"#F67018",
                                 paddingTop:35,
                                 paddingHorizontal:10,
                             }}>EMI starting at Rs 1000.</Text>
                             
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#fff",
-                            paddingTop:10,
-                            alignSelf :'center'
-                        }}>
-                            View All
-                        </Text>
+                            <TouchableOpacity style={styles.button}  ><Text style={styles.buttonText}>View All</Text></TouchableOpacity>
+
                     </TouchableOpacity>
 
                     <TouchableOpacity 
@@ -342,7 +322,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#000",
+                            backgroundColor:"#fff",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -360,41 +340,34 @@ const HomeScreen = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize: 25,
-                                color:"#fff"
+                                color:"#000"
                             }}>Max HealthCare Hospital</Text>
                           
                         </View>
                         <Text style={{
                                 alignSelf :'center',
                                 fontSize: 15,
-                                color:"#fff"
+                                color:"#000"
                             }}>Kurla West,Mumbai</Text>
 
                         <Text style={{
                                 alignSelf :'center',
                                 fontWeight:"bold",
                                 fontSize: 15,
-                                color:"#fff"
+                                color:"#138808"
                             }}>Distance: 2 km</Text>
 
                       <Text style={{
                                 alignSelf :'center',
                                 fontWeight:"bold",
                                 fontSize: 15,
-                                color:"#fff",
+                                color:"#F67018",
                                 paddingTop:35,
                                 paddingHorizontal:10,
                             }}>EMI starting at Rs 1000.</Text>
                             
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#fff",
-                            paddingTop:10,
-                            alignSelf :'center'
-                        }}>
-                            View All
-                        </Text>
+                            <TouchableOpacity style={styles.button}  ><Text style={styles.buttonText}>View All</Text></TouchableOpacity>
+
                     </TouchableOpacity>
 
                     <TouchableOpacity 
@@ -402,7 +375,7 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             height:250,
                             elevation:2,
-                            backgroundColor:"#000",
+                            backgroundColor:"#fff",
                             marginLeft:20,
                             marginTop:20,
                             borderRadius:15,
@@ -420,41 +393,34 @@ const HomeScreen = ({navigation}) => {
                             <Text style={{
                                 fontWeight:"bold",
                                 fontSize: 25,
-                                color:"#fff"
+                                color:"#000"
                             }}>Max HealthCare Hospital</Text>
                           
                         </View>
                         <Text style={{
                                 alignSelf :'center',
                                 fontSize: 15,
-                                color:"#fff"
+                                color:"#000"
                             }}>Kurla West,Mumbai</Text>
 
                         <Text style={{
                                 alignSelf :'center',
                                 fontWeight:"bold",
                                 fontSize: 15,
-                                color:"#fff"
+                                color:"#138808"
                             }}>Distance: 2 km</Text>
 
                       <Text style={{
                                 alignSelf :'center',
                                 fontWeight:"bold",
                                 fontSize: 15,
-                                color:"#fff",
+                                color:"#F67018",
                                 paddingTop:35,
                                 paddingHorizontal:10,
                             }}>EMI starting at Rs 1000.</Text>
                             
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#fff",
-                            paddingTop:10,
-                            alignSelf :'center'
-                        }}>
-                            View All
-                        </Text>
+                            <TouchableOpacity style={styles.button}  ><Text style={styles.buttonText}>View All</Text></TouchableOpacity>
+
                     </TouchableOpacity>
                 </ScrollView>
       <Button
@@ -478,7 +444,25 @@ const styles = StyleSheet.create({
 
   wrapper: {},
 
- 
+  button: {
+    width:137,
+    height:37,
+    backgroundColor:'#F67018',
+     borderRadius: 19,
+    opacity:1,
+    margin: 5
+     
+  },
+  buttonText: {
+    fontSize:16,
+    width:78,
+    height:21,
+    margin:5,
+    fontWeight:'bold',
+    color:'#fff',
+    alignSelf:"center",
+    opacity:1
+  },
   categoryContainer: {
     flexDirection: 'row',
     width: '90%',
@@ -499,7 +483,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: 70,
     height: 70,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     borderRadius: 50,
   },
   categoryBtnTxt: {
@@ -507,6 +491,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 10,
-    color: '#000',
+    color: '#fff',
   },
 });

@@ -16,6 +16,8 @@ import {
     Switch
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 export function DrawerContent(props) {
     const paperTheme = useTheme();
     return(
@@ -42,8 +44,8 @@ export function DrawerContent(props) {
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem 
                             icon={({color, size}) => (
-                                <Icon 
-                                name="home-outline" 
+                                <Ionicons
+                                name="ios-home" 
                                 color={color}
                                 size={size}
                                 />
@@ -53,8 +55,8 @@ export function DrawerContent(props) {
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
-                                <Icon 
-                                name="account-outline" 
+                                <Ionicons
+                                name="ios-person" 
                                 color={color}
                                 size={size}
                                 />
@@ -64,8 +66,9 @@ export function DrawerContent(props) {
                         />
                               <DrawerItem 
                             icon={({color, size}) => (
-                                <Icon 
-                                name="account-outline" 
+                                <Ionicons
+                                md="md-log-in"
+                                name="ios-log-in" 
                                 color={color}
                                 size={size}
                                 />
@@ -73,11 +76,48 @@ export function DrawerContent(props) {
                             label="Login/Signup"
                             onPress={() => {props.navigation.navigate('Login/Signup')}}
                         />
+                          <DrawerItem 
+                            icon={({color, size}) => (
+                                <Ionicons
+                                name="ios-pricetag" 
+                                color={color}
+                                size={size}
+                                />
+                            )}
+                            label="Rewards"
+                            onPress={() => {props.navigation.navigate('Login/Signup')}}
+                        />
+
+<DrawerItem 
+                            icon={({color, size}) => (
+                                <Ionicons
+                                md="md-card"
+                                name="ios-card" 
+                                color={color}
+                                size={size}
+                                />
+                            )}
+                            label="My EMI Health Cards"
+                            onPress={() => {props.navigation.navigate('Login/Signup')}}
+                        />
+
+<DrawerItem 
+                            icon={({color, size}) => (
+                                <Ionicons
+                                md="md-calendar"
+                                name="ios-calendar" 
+                                color={color}
+                                size={size}
+                                />
+                            )}
+                            label="My Appointments"
+                            onPress={() => {props.navigation.navigate('Login/Signup')}}
+                        />
                      
                         <DrawerItem 
                             icon={({color, size}) => (
-                                <Icon 
-                                name="home-outline" 
+                                <Ionicons
+                                name="ios-information-circle" 
                                 color={color}
                                 size={size}
                                 />
@@ -87,8 +127,8 @@ export function DrawerContent(props) {
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
-                                <Icon 
-                                name="account-check-outline" 
+                                <Ionicons
+                                name="ios-help-circle" 
                                 color={color}
                                 size={size}
                                 />
@@ -103,8 +143,8 @@ export function DrawerContent(props) {
             <Drawer.Section style={styles.bottomDrawerSection}>
                 <DrawerItem 
                     icon={({color, size}) => (
-                        <Icon 
-                        name="exit-to-app" 
+                        <Ionicons 
+                        name="ios-log-out" 
                         color={color}
                         size={size}
                         />

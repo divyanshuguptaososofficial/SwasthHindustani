@@ -82,7 +82,7 @@ export default class All extends React.Component{
 
 
         <LinearGradient 
-        colors={['#000', '#000']}
+        colors={['#FFF', '#FFF']}
         start={{x:0, y:1}} end={{x:1, y:0}}
         style={styles.item}
         >
@@ -117,8 +117,8 @@ export default class All extends React.Component{
           style={styles.button}>
               <AntDesign 
                 name="arrowright"
-                color="black"
-                size={15}
+                color="#F67018"
+                size={25}
               />
           </TouchableOpacity>
 
@@ -145,13 +145,15 @@ export default class All extends React.Component{
       <ScrollView>
       <View style={styles.container}>
         <Text style={{
-          paddingTop:15,
-          paddingLeft:15,
-          paddingBottom:15,
-          fontWeight:"bold",
-          fontSize:25,
-          color:"#000",
-          alignItems:"center"
+         paddingTop:15,
+         paddingLeft:15,
+         paddingBottom:15,
+         fontWeight:"bold",
+         fontSize:25,
+         marginLeft:20,
+         color:"#2F2F2A",
+         
+         alignItems:"center"
       }} >Services For You</Text>
           <View style={styles.section}>
           <Ionicons 
@@ -177,21 +179,14 @@ export default class All extends React.Component{
            
 
           </View>
-        <View style={styles.ChooseCategory}><ChooseCategory/>
+        <ChooseCategory/>
         
         
-        </View>
+     
         
          
-        <View style={{
-    flexDirection:"row",
-    paddingHorizontal:20,
-    paddingTop:15,
-    width:"100%",
-    alignItems:"center",
-   
-}}></View>
-    <View style={{width:"50%"}}>
+        
+    <View >
          <Text style={{
              fontWeight:"bold",
              fontSize:17,
@@ -230,12 +225,7 @@ var styles = StyleSheet.create({
     backgroundColor:'white',
     paddingBottom:5
   },
-  ChooseCategory: {
-    flexDirection:"row",
-    
-    width:"100%",
-    alignItems:"center"
-  },
+  
   flatList: {
     flex:1,
     paddingLeft:10,
@@ -243,19 +233,33 @@ var styles = StyleSheet.create({
   },
   item: {
     flex:1,
+    height:130,
+    width:380,
     paddingVertical:10,
     paddingHorizontal:10,
     flexDirection:'row',
-    borderRadius:10
+    borderRadius:15,
+    shadowColor:"#2f2f2a",
+    shadowOffset: { width: 5, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 1,  
+    elevation: 5
   },
   image_container: {
     width: 90,
-    height: 90
+    height: 90,
+    margin:10,
+    borderRadius:180,
+    borderColor:"#2F2F2A",
+    borderWidth:2
   },
   image: {
     width:'100%',
     height:'100%',
-    borderWidth:5,
+    borderColor:"#2F2F2A",
+
+    borderRadius:180,
+
     borderColor:'white',
     borderRadius:10
   },
@@ -265,7 +269,7 @@ var styles = StyleSheet.create({
     paddingHorizontal:10
   },
   name: {
-    color:'white',
+    color:'#2F2F2A',
     fontWeight:'bold',
     fontSize:18
   },
@@ -276,6 +280,10 @@ var styles = StyleSheet.create({
   button: {
     width:30,
     height:30,
+    marginRight:30,
+    marginBottom:50,
+    marginTop:50,
+
     backgroundColor:'white',
     borderRadius:15,
     justifyContent:'center',
@@ -286,10 +294,12 @@ var styles = StyleSheet.create({
     marginTop:10
   },
   price: {
-    backgroundColor:'white',
     paddingVertical:5,
     paddingHorizontal:15,
-    borderRadius:50
+    borderRadius:50,
+    borderColor:"#F67018",
+    borderStyle:"solid",
+    borderWidth:2,
   },
   textPrice: {
     color:'green',
@@ -300,8 +310,11 @@ var styles = StyleSheet.create({
     alignItems:'center',
     paddingVertical:5,
     paddingHorizontal:10,
-    backgroundColor:'#f2f2f2',
-    margin:10,
+    width:339,
+    backgroundColor:'#ECF3FD',
+    marginLeft:30,
+    marginRight:30,
+  
   
   }
 });

@@ -118,9 +118,10 @@ renderItem = ({item}) => {
   return(
     
     <LinearGradient 
-    colors={['#000', '#000']}
+    colors={['#fff', '#fff']}
     start={{x:0, y:1}} end={{x:1, y:0}}
     style={styles.item}
+    
     >
                 <List.Section style={{color:"#fff"}}>
   <List.Accordion
@@ -128,24 +129,24 @@ renderItem = ({item}) => {
     
     description={item.name}                                           
   
-    titleStyle={{color:"#fff"}}
-    descriptionStyle={{color:"#fff"}}
+    titleStyle={{color:"#8D8989",fontWeight:"bold",fontSize:18}}
+    descriptionStyle={{color:"#2F2F2A",fontWeight:"bold",fontSize:15}}
     
     >
   <View style={{marginLeft:10}}>
-  <Text style={{color:"#fff"}}> {item.cost}</Text>
+  <Text style={{color:"#138808",fontWeight:"bold",fontSize:15}}> {item.cost}</Text>
 
-  <Text style={{color:"#fff"}}> {item.price}</Text>
+  <Text style={{color:"#F67018",fontWeight:"bold",fontSize:15}}> {item.price}</Text>
   <View style={styles.rating}>
             {this._rating(item.rating)}
           </View>
-          <Text style={{color:"#fff"}}> {item.Distance}</Text>
+          <Text style={{color:"#138808",fontWeight:"bold",fontSize:15}}> {item.Distance}</Text>
           </View>
     
-   <View style={{flexDirection:"row",marginLeft:60}}>
+   <View style={{flexDirection:"row",marginLeft:30}}>
+   <TouchableOpacity style={styles.button} onPress={this.Hospital} ><Text style={styles.buttonText}>Book Now</Text></TouchableOpacity>
+   <TouchableOpacity style={styles.button} onPress={this.Hospital} ><Text style={styles.buttonText}>View All</Text></TouchableOpacity>
 
-   <Button onPress={this.Hospital}>Book Now</Button>
-   <Button>View All </Button>
    
 
    </View>
@@ -172,7 +173,9 @@ renderItem = ({item}) => {
               paddingBottom:15,
               fontWeight:"bold",
               fontSize:25,
-              color:"#000",
+              marginLeft:20,
+              color:"#2F2F2A",
+              
               alignItems:"center"
           }} >Services For You</Text>
               <View style={styles.section}>
@@ -204,10 +207,12 @@ renderItem = ({item}) => {
               <View style={styles.filter}>
               <Ionicons 
               style={{margin:20}}
-                      name="ios-book"
-                      color="gray"
+                      name="ios-map"
+                      color="white"
                       size={30}
+                      md="md-map"
                     />
+                    
               <View style={styles.inputBox}>
               
             <Picker
@@ -230,12 +235,14 @@ renderItem = ({item}) => {
 
 
 </View>
+<View style={{width:60,height:50,marginTop: 10,marginBottom:10,backgroundColor:"#fff"}}>
 <Ionicons 
-              style={{margin:20}}
+              style={{margin:15}}
                       name="ios-funnel"
-                      color="gray"
-                      size={30}
+                      color="black"
+                      size={20}
                     />
+                    </View>
               </View>
 
               <View style={styles.flatList}>
@@ -271,16 +278,39 @@ var styles = StyleSheet.create({
     marginTop:5,
     flexDirection:'row'
   },
+  button: {
+    width:137,
+    height:37,
+    backgroundColor:'#F67018',
+     borderRadius: 19,
+    opacity:1,
+    margin: 5
+     
+  },
+  buttonText: {
+    fontSize:16,
+    width:78,
+    height:21,
+    margin:5,
+    fontWeight:'bold',
+    color:'#fff',
+    alignSelf:"center",
+    opacity:1
+  },
   item: {
 margin:10,
     paddingVertical:10,
     paddingHorizontal:10,
- 
-    borderRadius:10
+    borderRadius:12,
+    shadowColor:"#2f2f2a",
+    shadowOffset: { width: 5, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 1,  
+    elevation: 5
   },
   filter:{
     marginTop:20,
-    backgroundColor:"#000",
+    backgroundColor:"#F67018",
     height:70,
     width:"100%",
     flexDirection:"row"
@@ -291,9 +321,10 @@ margin:10,
     alignItems:'center',
     paddingVertical:5,
     paddingHorizontal:10,
-    
-    backgroundColor:'#f2f2f2',
-    margin:10,
+    width:339,
+    backgroundColor:'#ECF3FD',
+    marginLeft:30,
+    marginRight:30,
   
   },
   inputBox: {
