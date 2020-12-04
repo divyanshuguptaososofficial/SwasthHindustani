@@ -27,23 +27,25 @@ const ChooseCategory = ({onPress}) => {
     <View style={{width:"50%"}}>
          <Text style={{
              fontWeight:"bold",
-             fontSize:17,
-             color:"#000"
+             fontSize:20,
+             color:"#2F2F2A"
          }}>Choose Category</Text>
         
 
     </View>
     <View style={{width:"50%", alignItems:"flex-end"}}>
          <View style={{
-             backgroundColor:"#000",
              paddingHorizontal:20,
              paddingVertical:5,
-             borderRadius:15
+             borderRadius:15,
+             borderColor:"#F67018",
+             borderStyle:"solid",
+             borderWidth:2,
          }}>
              <Text style={{
                  fontWeight:"bold",
                  fontSize:13,
-                 color:"#FFF"
+                 color:"#F67018"
              }}>View All</Text>
          </View>
     </View>
@@ -59,14 +61,15 @@ const ChooseCategory = ({onPress}) => {
      <TouchableOpacity 
          onPress={()=>navigation.navigate("Detail")}
          style={{
-             height:250,
+            
              elevation:2,
-             backgroundColor:"#000",
+             backgroundColor:"#fff",
              marginLeft:20,
              marginTop:20,
              borderRadius:15,
              marginBottom:10,
-             width:160
+             width:135,
+             height:177,
          }}
      >
         
@@ -78,8 +81,8 @@ const ChooseCategory = ({onPress}) => {
          }}>
              <Text style={{
                  fontWeight:"bold",
-                 fontSize: 25,
-                 color:"#fff"
+                 fontSize: 15,
+                 color:"#2F2F2A"
              }}>Basic Health Checkup</Text>
             
          </View>
@@ -91,14 +94,15 @@ const ChooseCategory = ({onPress}) => {
      <TouchableOpacity 
          onPress={()=>navigation.navigate("Detail")}
          style={{
-             height:250,
+            width:135,
+            height:177,
              elevation:2,
-             backgroundColor:"#000",
+             backgroundColor:"#fff",
              marginLeft:20,
              marginTop:20,
              borderRadius:15,
              marginBottom:10,
-             width:160
+             
          }}
      >
         
@@ -110,8 +114,8 @@ const ChooseCategory = ({onPress}) => {
          }}>
              <Text style={{
                  fontWeight:"bold",
-                 fontSize: 25,
-                 color:"#fff"
+                 fontSize: 15,
+                 color:"#2F2F2A"
              }}>Family Health Checkup Package</Text>
             
          </View>
@@ -121,14 +125,15 @@ const ChooseCategory = ({onPress}) => {
      <TouchableOpacity 
          onPress={()=>navigation.navigate("Detail")}
          style={{
-             height:250,
+             
              elevation:2,
-             backgroundColor:"#000",
+             backgroundColor:"#fff",
              marginLeft:20,
              marginTop:20,
              borderRadius:15,
              marginBottom:10,
-             width:160
+             width:135,
+             height:177,
          }}
      >
         
@@ -140,8 +145,8 @@ const ChooseCategory = ({onPress}) => {
          }}>
              <Text style={{
                  fontWeight:"bold",
-                 fontSize: 25,
-                 color:"#fff"
+                 fontSize: 15,
+                 color:"#2F2F2A"
              }}>Children Health Checkup Package</Text>
             
          </View>
