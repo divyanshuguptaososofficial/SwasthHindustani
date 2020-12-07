@@ -17,7 +17,8 @@ export default class SignupForm extends Component {
     fname: '',
     lname: '',
     phoneno: '',
-    dob: ''
+    dob: '',
+    pin: ''
 
  }
  handleEmail = (text) => {
@@ -36,25 +37,33 @@ handlePhoneno = (text) => {
   this.setState({ phoneno: text })
 }
 handleDob = (text) => {
-  this.setState({ dob: DatePicker })
+  this.setState({ dob: text })
+}
+handlePin = (text) =>
+{
+  this.setState({pin:text})
 }
 
  
  InsertStudentRecordsToServer = () =>{
-  axios.post(`http://192.168.29.71:8080/users`, { 
+  axios.post(`http://192.168.56.1:8080/register`, { 
 
          fname: this.state.fname,       
          lname: this.state.lname,
          email: this.state.email,
          password: this.state.password,
          dob: this.state.dob,
-         number: this.state.phoneno
+         number: this.state.phonene,
+         pin: this.state.pin
 
 
 })
   .then(res => {
-  
+     
+    
+   
     Alert.alert("Thank you for registering!!!");
+   
   })
 
 }
@@ -116,7 +125,14 @@ handleDob = (text) => {
               />
               
          
-             
+              <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="PinCode"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="number-pad"
+              onChangeText = {this.handlePin}
+              />
                
            <TouchableOpacity title ={"Signup"} 
                style={styles.button}   onPress={this.InsertStudentRecordsToServer}              >
