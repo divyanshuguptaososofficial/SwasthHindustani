@@ -6,12 +6,16 @@ import {dummyData} from './DummyData'
 import Carousel from '../components/Carousel';
 import {TextInput,ScrollView} from 'react-native-gesture-handler';
 import CreditCardDisplay from 'react-native-credit-card-display';
+import {Actions} from 'react-native-router-flux';
+
 const HomeScreen = ({navigation}) => {
   
   const { colors } = useTheme();
 
   const theme = useTheme();
-  
+  const BookAppointment=() =>{
+    Actions.BookAppointment()//signup button function for navigating to signup page
+  }
     return (
       <ScrollView 
       vertical
@@ -24,9 +28,8 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.categoryContainer}>
         <TouchableOpacity
           style={styles.categoryBtn}
-          onPress={() =>
-            navigation.navigate('CardListScreen', {title: 'Book an Appointment'})
-          }>
+          onPress={BookAppointment}
+          >
           <View style={styles.categoryIcon}>
             <Ionicons name="ios-calendar" size={35} color="#000" />
           </View>
