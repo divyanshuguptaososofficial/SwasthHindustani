@@ -21,8 +21,8 @@ var msg="";
 const BasicInformation = ({navigation}) =>  {
   const [userName, setUserName] = useState(g_name);
   const [userEmail, setUserEmail] = useState(g_email);
-  const [userAge, setUserAge] = useState(g_age);
-  const [userPhoneno, setUserPhoneno] = useState(g_phone);
+  const [userAge, setUserAge] = useState(g_age.toString());
+  const [userPhoneno, setUserPhoneno] = useState(g_phone.toString());
   
   const [
     isRegistraionSuccess,
