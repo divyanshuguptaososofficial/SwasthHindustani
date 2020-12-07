@@ -1,4 +1,6 @@
 import React from "react";
+import axios from 'axios';
+import {g_id,g_name,g_email,g_phone,g_age} from  '../components/Form';
 import { 
   View,
   FlatList,
@@ -6,7 +8,7 @@ import {
   Image,
   TouchableOpacity,
 
-  TextInput
+  TextInput, Alert
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import LinearGradient from "react-native-linear-gradient";
@@ -15,6 +17,9 @@ import {Picker} from '@react-native-community/picker';
 import { List , Button ,Text} from 'react-native-paper';
 import Hospital from "./SelectedHospital";
 import {Actions} from 'react-native-router-flux';
+
+
+
 var data = [
   {
     
@@ -25,46 +30,8 @@ var data = [
             cost:"Approximate Cost Rs 2000",
             Distance:"Distance : 5 KM"
 
-        },
-        {
-            disease:'Diabetes Center 2',
-            name:'Hospital 2',
-            Distance:"Distance : 10 KM",
-
-            rating: 5,
-            price: "Closed 9am-11pm",
-            cost:"Approximate Cost Rs 5000",
-
-        },
-        {
-          disease:"Diabetes Center 3",
-          Distance:"Distance : 15 KM",
-
-            name:'Hospital 3',
-            rating: 4,
-            price: "Closed 9am-11pm",
-            cost:"Approximate Cost Rs 15000",
-
-        },
-        {
-          disease:"Diabetes Center 4",
-          Distance:" Distance : 20 KM",
-
-            name:'Hospital 4',
-            rating: 2,
-            price: "Closed 9am-11pm",
-            cost:"Approximate Cost Rs 2000",
-
-        },
-        {
-          disease:"Diabetes Center 5",
-          Distance:" Distance : 25 KM",
-
-            name:'Hospital 5',
-            cost:"Approximate Cost Rs 25000",
-            rating: 5,
-            price: "Open 9am-11pm"
-        },
+        }
+        
 ];
   
 
@@ -76,14 +43,79 @@ export default class Results extends React.Component{
     
  }
  Hospital() {
+
+if(g_id ==  '')
+{
+  Alert.alert("Please Login to Continue")
+  //Navigate to Login Page
+ 
+}
+else
   Actions.Hospital()//signup button function for navigating to signup page
+}
+
+
+setData()
+{
+ 
+  axios.get(`http://192.168.56.1:8080/search`, { 
+
+   
+
+})
+.then(res => {
+
+  
+//Alert.alert(res.data.Data[0].hs_name +" " +  res.data.Data.length  + " " +res.data.Data[0].services.length)
+
+for(let i = 0;i<res.data.Data.length;i++)
+{
+  
+for(let j= 0;j<res.data.Data[i].services.length;j++)
+{
+  let temp =
+  {
+     
+          
+        disease: res.data.Data[i].services[j].sv_name.toUpperCase(),
+         Distance:" Distance : 25 KM",
+  
+      name: res.data.Data[i].hs_name,
+      cost:"Approximate Cost Rs 25000",
+      rating: 5,
+      price: "Open 9am-11pm"
+  
+  }
+  
+  data.push(temp);
+  
+       
+  }
+}
+data.shift()
+
+  
+
+
+
+
+
+
+
+})
+
+
 }
  constructor(props){
   super(props);
+
+  this.setData()
+   
   this.state={
     data: data,
     data_temp: data,
     search: ''
+
   }
 }
 ItemSeparatorComponent = () => {
