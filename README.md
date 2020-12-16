@@ -34,9 +34,9 @@
 
 # Client Profile Screens
 
-<img src = "/Swasth Hindstani clips/Profile 1.png" width="300" height="500"/> <img src = "/Swasth Hindstani clips/Profile 2.png" width="300" height="500"/> 
-<img src = "/Swasth Hindstani clips/Profile3.png" width="300" height="500"/> <img src = "/Swasth Hindstani clips/Profile 4.png" width="300" height="500"/> 
-<img src = "/Swasth Hindstani clips/Profile .5png" width="300" height="500"/> 
+<img src = "/Swasth Hindstani clips/Profile 1.png" width="300" height="600"/> <img src = "/Swasth Hindstani clips/Profile 2.png" width="300" height="600"/> 
+<img src = "/Swasth Hindstani clips/Profile 3.png" width="300" height="600"/> <img src = "/Swasth Hindstani clips/Profile 4.png" width="300" height="600"/> 
+<img src = "/Swasth Hindstani clips/Profile 5.png" width="300" height="600"/> 
 
 
 
