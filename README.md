@@ -9,9 +9,9 @@
   4) Attendance
   5) Quizes
 
-# LOGIN
+# Splash Screen 
 
-<img src = "/smartkaksha clips/Login Page.jpeg" width="300" height="500"/> 
+<img src = "/Swasth Hindstani clips/Splash Screen 1.jpeg" width="300" height="500"/> <img src = "/Swasth Hindstani clips/Splash Screen 2.jpeg" width="300" height="500"/> 
 
 # MAIN MENU 
 
