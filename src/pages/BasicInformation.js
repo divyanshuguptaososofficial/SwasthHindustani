@@ -42,7 +42,7 @@ const BasicInformation = ({navigation}) =>  {
    const number = parseInt(userPhoneno);
    const  age = parseInt(userAge);
   // Alert.alert(age+" " + number);
-  axios.post(`http://192.168.56.1:8080/basic`, { 
+  axios.post(`http://192.168.29.71:8080/basic`, { 
 
    id: g_id,
    name:userName,

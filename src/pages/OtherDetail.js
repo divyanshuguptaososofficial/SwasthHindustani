@@ -41,7 +41,7 @@ Next = () =>{
   
     //Alert.alert(userPanno + userAadharno + userAddone + userAddtwo + userPincode)
     
-    axios.post(`http://192.168.56.1:8080/other`, { 
+    axios.post(`http://192.168.29.71:8080/other`, { 
      id: g_id,
      panno : userPanno,
      aadhaarno:parseInt(userAadharno),

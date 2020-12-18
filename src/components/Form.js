@@ -40,7 +40,7 @@ export default class Login extends Component {
 
  
   home(){
-    axios.post(`http://192.168.56.1:8080/login`, { 
+    axios.post(`http://192.168.29.71:8080/login`, { 
 
       email: this.state.email,
       password: this.state.password
