@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {g_name,g_email} from  '../components/Form';
 import { View, StyleSheet } from 'react-native';
   import {
     DrawerContentScrollView,
@@ -33,8 +34,8 @@ export function DrawerContent(props) {
                                 size={50}
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>Divyanshu Gupta</Title>
-                                <Caption style={styles.caption}>D@gmail.com</Caption>
+                                <Title style={styles.title}>{g_name?g_name:'name'}</Title>
+                                <Caption style={styles.caption}>{g_email?g_email:'name@email.com'}</Caption>
                             </View>
                         </View>
 

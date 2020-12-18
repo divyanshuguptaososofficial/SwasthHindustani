@@ -1,4 +1,6 @@
 import React from "react";
+import axios from 'axios';
+import {g_id,g_name,g_email,g_phone,g_age} from  '../components/Form';
 import { 
   View,
   FlatList,
@@ -13,7 +15,142 @@ Button,
 
 export default class Results extends React.Component{
  
+  TextInput, Alert
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import LinearGradient from "react-native-linear-gradient";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import {Picker} from '@react-native-community/picker';
+import { List , Button ,Text} from 'react-native-paper';
+import Hospital from "./SelectedHospital";
+import {Actions} from 'react-native-router-flux';
 
+
+
+var data = [
+  {
+    
+            disease:"Diabetes Center",
+            name:'Hospital 1',
+            rating: 3,
+            price: "Open 9am-11pm",
+            cost:"Approximate Cost Rs 2000",
+            Distance:"Distance : 5 KM"
+
+        }
+        
+];
+  
+
+
+export default class Results extends React.Component{
+  state = {
+    
+    search: 'Nearest First',
+    
+ }
+ Hospital() {
+
+if(g_id ==  '')
+{
+  Alert.alert("Please Login to Continue")
+  //Navigate to Login Page
+ 
+}
+else
+  Actions.Hospital()//signup button function for navigating to signup page
+}
+
+
+setData()
+{
+ 
+  axios.get(`http://192.168.56.1:8080/search`, { 
+
+   
+
+})
+.then(res => {
+
+  
+//Alert.alert(res.data.Data[0].hs_name +" " +  res.data.Data.length  + " " +res.data.Data[0].services.length)
+
+for(let i = 0;i<res.data.Data.length;i++)
+{
+  
+for(let j= 0;j<res.data.Data[i].services.length;j++)
+{
+  let temp =
+  {
+     
+          
+        disease: res.data.Data[i].services[j].sv_name.toUpperCase(),
+         Distance:" Distance : 25 KM",
+  
+      name: res.data.Data[i].hs_name,
+      cost:"Approximate Cost Rs 25000",
+      rating: 5,
+      price: "Open 9am-11pm"
+  
+  }
+  
+  data.push(temp);
+  
+       
+  }
+}
+data.shift()
+
+  
+
+
+
+
+
+
+
+})
+
+
+}
+ constructor(props){
+  super(props);
+
+  this.setData()
+   
+  this.state={
+    data: data,
+    data_temp: data,
+    search: ''
+
+  }
+}
+ItemSeparatorComponent = () => {
+  return(
+    <View 
+      style={{
+        height:10
+      }}
+    />
+  )
+}
+
+_search(){
+ // navigate("Explore");
+}
+ _rating(item){
+  let rating = [];
+  for(i=0;i<item;i++){
+    rating.push(
+      <Image 
+        source={require("../assets/images/star.png")}
+        style={{width:15, height:15, marginRight:3}}
+        resizeMode="cover"
+      />
+    )
+  }
+  return rating;
+}
 
     
     render(){
