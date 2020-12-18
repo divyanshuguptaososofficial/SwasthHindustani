@@ -7,7 +7,14 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+Button,
+  TextInput
+} from "react-native";
 
+
+
+export default class Results extends React.Component{
+ 
   TextInput, Alert
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -145,152 +152,15 @@ _search(){
   return rating;
 }
 
-
-renderItem = ({item}) => {
-  return(
     
-    <LinearGradient 
-    colors={['#fff', '#fff']}
-    start={{x:0, y:1}} end={{x:1, y:0}}
-    style={styles.item}
-    
-    >
-                <List.Section style={{color:"#fff"}}>
-  <List.Accordion
-    title={item.disease}
-    
-    description={item.name}                                           
-  
-    titleStyle={{color:"#8D8989",fontWeight:"bold",fontSize:18}}
-    descriptionStyle={{color:"#2F2F2A",fontWeight:"bold",fontSize:15}}
-    
-    >
-  <View style={{marginLeft:10}}>
-  <Text style={{color:"#138808",fontWeight:"bold",fontSize:15}}> {item.cost}</Text>
-
-  <Text style={{color:"#F67018",fontWeight:"bold",fontSize:15}}> {item.price}</Text>
-  <View style={styles.rating}>
-            {this._rating(item.rating)}
-          </View>
-          <Text style={{color:"#138808",fontWeight:"bold",fontSize:15}}> {item.Distance}</Text>
-          </View>
-    
-   <View style={{flexDirection:"row",marginLeft:30}}>
-   <TouchableOpacity style={styles.button} onPress={this.Hospital} ><Text style={styles.buttonText}>Book Now</Text></TouchableOpacity>
-   <TouchableOpacity style={styles.button} onPress={this.Hospital} ><Text style={styles.buttonText}>View All</Text></TouchableOpacity>
-
-   
-
-   </View>
-  </List.Accordion>
-
-
-  </List.Section>
-
-
-      </LinearGradient>
-
-
-  )
-}
-
     render(){
 
         return(
-          <ScrollView>
-          <View style={styles.container}>
-            <Text style={{
-              paddingTop:15,
-              paddingLeft:15,
-              paddingBottom:15,
-              fontWeight:"bold",
-              fontSize:25,
-              marginLeft:20,
-              color:"#2F2F2A",
-              
-              alignItems:"center"
-          }} >Services For You</Text>
-              <View style={styles.section}>
-              <Ionicons 
-                  name="ios-search"
-                  color="gray"
-                  size={20}/>
-                  <TextInput 
-                 
-                    placeholder="Search.."
-                    style={{ flex:1,marginTop:5}}
-                    
-                  />
-                  <TouchableOpacity
-                 
-                  
-                  style={{paddingHorizontal:10}}> 
-                  
-    
-                    <Ionicons 
-                      name="ios-close"
-                      color="gray"
-                      size={20}
-                    />
-                  </TouchableOpacity>
-               
-    
-              </View>
-              <View style={styles.filter}>
-              <Ionicons 
-              style={{margin:20}}
-                      name="ios-map"
-                      color="white"
-                      size={30}
-                      md="md-map"
-                    />
-                    
-              <View style={styles.inputBox}>
-              
-            <Picker
-  selectedValue={this.state.search}
-  style={{color: '#000',alignContent:"center",flexDirection:"row"}}
- 
-  onValueChange={(itemValue, itemIndex) =>
-    this.setState({language: itemValue})
-    
-  }>
-    
-  <Picker.Item   label="Nearest First" value="sm" />
-  <Picker.Item label="Less" value="hr" />
-  <Picker.Item label="High" value="mo" />
-
- 
-
-</Picker>
-
-
-
-</View>
-<View style={{width:60,height:50,marginTop: 10,marginBottom:10,backgroundColor:"#fff"}}>
-<Ionicons 
-              style={{margin:15}}
-                      name="ios-funnel"
-                      color="black"
-                      size={20}
-                    />
-                    </View>
-              </View>
-
-              <View style={styles.flatList}>
-              <FlatList 
-                data={this.state.data}
-                renderItem={this.renderItem}
-                keyExtractor={(item, index)=>index.toString()}
-                ItemSeparatorComponent={this.ItemSeparatorComponent}
-                showsVerticalScrollIndicator={false}
-              />
-          </View>
-      
-   
-        
-              </View>
-              </ScrollView>
+          <Button
+      title="Go to details screen"
+      color= '#000000'
+      onPress={() => navigation.navigate("home")}
+    />
         )
 }
 }
