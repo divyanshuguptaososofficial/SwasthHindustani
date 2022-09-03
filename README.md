@@ -1,14 +1,5 @@
 # SwasthHindustani App
 
-  An online Classroom App for students and teachers
-  
-  Teacher can
-  1) Take Online Lectures
-  2) Manage Currciulum
-  3) View Student Performance
-  4) Attendance
-  5) Quizes
-
 # Splash Screen 
 
 <img src = "/Swasth Hindstani clips/Splash Screen 1.png" width="300" height="600"/> <img src = "/Swasth Hindstani clips/Splash Screen 2.png" width="300" height="600"/> 
